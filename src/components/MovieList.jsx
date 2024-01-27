@@ -11,7 +11,7 @@ export default function MovieList({ title, hideSeeAll, data }) {
   return (
     <View className="mb-8 space-y-4 bg-black">
 
-      <View className="mx-4 flex-row justify-between items-center">
+      <View className="mx-4 py-4 flex-row justify-between items-center">
         <View style={{ margin: isLargeScreen ? 200 : 10 }}>
           {
             title === 'Upcoming' ? (
@@ -31,7 +31,7 @@ export default function MovieList({ title, hideSeeAll, data }) {
         {
           !hideSeeAll && (
             <TouchableOpacity>
-              <Text style={{ color: theme.text }} className="text-lg">See All</Text>
+              <Text style={{ color: theme.title }} className="text-lg">See All</Text>
             </TouchableOpacity>
           )
         }
