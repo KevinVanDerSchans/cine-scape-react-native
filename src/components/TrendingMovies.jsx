@@ -4,11 +4,18 @@ import { ArrowTrendingUpIcon } from 'react-native-heroicons/solid';
 import Carousel from 'react-native-snap-carousel';
 import { image500 } from './../api/moviedb';
 import { theme } from '../theme';
+import { useNavigation } from '@react-navigation/native';
 
 
 const { width, height } = Dimensions.get('window');
 
 export default function TrendingMovies({ data }) {
+
+  const navigation = useNavigation();
+  const handleClick = (item) => {
+      navigation.navigate('Movie', item);
+  }
+
   return (
     <View className="mb-8 py-4 bg-black">
       <View className="flex-row mx-4 mb-8 items-center">
@@ -18,7 +25,7 @@ export default function TrendingMovies({ data }) {
 
       <Carousel
         data={data}
-        renderItem={({ item }) => <MovieCard item={item}  />}
+        renderItem={({ item }) => <MovieCard item={item} handleClick={handleClick} />}
         firstItem={1}
         inactiveSlideScale={0.85}
         inactiveSlideOpacity={0.60}
@@ -30,9 +37,9 @@ export default function TrendingMovies({ data }) {
   )
 }
 
-const MovieCard = ({ item }) => {
+const MovieCard = ({ item, handleClick }) => {
   return (
-    <TouchableWithoutFeedback>
+    <TouchableWithoutFeedback onPress={() => handleClick(item)}>
       <Image
         source={{ uri: image500(item.poster_path) }}
         style={{

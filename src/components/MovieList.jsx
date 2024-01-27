@@ -2,12 +2,16 @@ import React from 'react';
 import { View, Text, ScrollView, TouchableWithoutFeedback, Image, Dimensions, TouchableOpacity } from 'react-native';
 import { fallbackMoviePoster, image185 } from '../api/moviedb';
 import { ForwardIcon, TrophyIcon, VideoCameraIcon } from 'react-native-heroicons/solid';
+import { useNavigation } from '@react-navigation/native';
 import { theme } from '../theme';
 
 const { width, height } = Dimensions.get('window');
 const isLargeScreen = width >= 768;
 
 export default function MovieList({ title, hideSeeAll, data }) {
+
+  const navigation = useNavigation();
+
   return (
     <View className="mb-8 space-y-4 bg-black">
 
@@ -47,6 +51,7 @@ export default function MovieList({ title, hideSeeAll, data }) {
             return (
               <TouchableWithoutFeedback
                 key={index}
+                onPress={() => navigation.push('Movie', item)}
               >
                 <View className="space-y-1 mr-4">
                   <Image
