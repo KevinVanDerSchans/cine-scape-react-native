@@ -1,14 +1,30 @@
 import { StatusBar } from 'expo-status-bar';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { Bars3CenterLeftIcon, FilmIcon, MagnifyingGlassIcon } from 'react-native-heroicons/outline';
-
+import Spinner from '../components/Spinner';
+import TrendingMovies from '../components/TrendingMovies';
+import { fetchTrendingMovies } from '../api/moviedb';
 import { theme } from '../theme';
 
 export default function HomeScreen() {
-
+  const [trending, setTrending] = useState([]);
+  const [loading, setLoading] = useState(true);
   const navigation = useNavigation();
+
+  useEffect(() => {
+    getTrendingMovies();
+  }, []);
+
+  const getTrendingMovies = async () => {
+    const data = await fetchTrendingMovies();
+
+    if (data && data.results)
+      setTrending(data.results);
+      setLoading(false);
+}
 
   return (
     <View className="flex-1 bg-blue-500">
@@ -21,9 +37,8 @@ export default function HomeScreen() {
 
           <View className="flex-row">
             <FilmIcon size='30' color={theme.title} />
-
             <Text className='text-white text-xl font-bold'>
-              <Text style={{ color: theme.title }}> CineScape</Text>
+              <Text>CineScape</Text>
             </Text>
           </View>
 
@@ -31,8 +46,23 @@ export default function HomeScreen() {
             <MagnifyingGlassIcon size='30' color={theme.text} strokeWidth={2} />
           </TouchableOpacity>
         </View>
-      </SafeAreaView>
 
+        {
+          loading ? (
+            <Spinner />
+
+          ) : (
+            <ScrollView
+              showsVerticalScrollIndicator={false}
+              contentContainerStyle={{ paddingBottom: 10 }}
+              style={{ marginBottom: 50 }}
+            >
+              {trending.length > 0 && <TrendingMovies data={trending} />}
+
+            </ScrollView>
+          )
+        }
+      </SafeAreaView>
     </View>
   )
 }

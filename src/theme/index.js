@@ -1,5 +1,5 @@
 export const theme = {
-  background: '#eab308',
+  background: 'brown',
   text: 'black',
   title: 'white',
   liked: '#FF0000',

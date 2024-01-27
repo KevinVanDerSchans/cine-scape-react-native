@@ -4,7 +4,7 @@ const apiKey = 'f2c9b612cb6364f8beadd512476a4cca';
 
 const apiBaseUrl = 'https://api.themoviedb.org/3';
 const trendingMoviesEndpoint = `${apiBaseUrl}/trending/movie/day?api_key=${apiKey}`;
-
+export const image500 = (posterPath) => posterPath ? `https://image.tmdb.org/t/p/w500${posterPath}` : null;
 
 const apiCall = async (endpoint, params) => {
   const options = {
