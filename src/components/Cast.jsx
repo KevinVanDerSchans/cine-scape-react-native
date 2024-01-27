@@ -20,7 +20,7 @@ export default function Cast({ cast, navigation }) {
             return (
               <TouchableOpacity
                 key={index}
-                onPress={() => navigation.navigate('Person', person)}
+                onPress={() => navigation.navigate('Actor', person)}
                 className="mr-4 items-center"
               >
                 <View
