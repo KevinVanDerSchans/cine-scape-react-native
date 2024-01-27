@@ -1,9 +1,9 @@
 import { View, Text } from 'react-native';
 
-export default function HomeScreen() {
+export default function MovieScreen() {
   return (
     <View className="flex mt-20">
-      <Text>Home</Text>
-    </View>
+    <Text>Movie</Text>
+  </View>
   )
 }
