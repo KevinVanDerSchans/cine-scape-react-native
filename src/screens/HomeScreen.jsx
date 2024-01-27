@@ -5,17 +5,20 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { Bars3CenterLeftIcon, FilmIcon, MagnifyingGlassIcon } from 'react-native-heroicons/outline';
 import Spinner from '../components/Spinner';
+import MovieList from '../components/MovieList';
 import TrendingMovies from '../components/TrendingMovies';
-import { fetchTrendingMovies } from '../api/moviedb';
+import { fetchTrendingMovies, fetchUpcomingMovies } from '../api/moviedb';
 import { theme } from '../theme';
 
 export default function HomeScreen() {
   const [trending, setTrending] = useState([]);
+  const [upcoming, setUpcoming] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigation = useNavigation();
 
   useEffect(() => {
     getTrendingMovies();
+    getUpcomingMovies();
   }, []);
 
   const getTrendingMovies = async () => {
@@ -24,7 +27,15 @@ export default function HomeScreen() {
     if (data && data.results)
       setTrending(data.results);
       setLoading(false);
-}
+  };
+
+  const getUpcomingMovies = async () => {
+    const data = await fetchUpcomingMovies();
+
+    if (data && data.results)
+      setUpcoming(data.results);
+  };
+
 
   return (
     <View className="flex-1 bg-blue-500">
@@ -58,6 +69,8 @@ export default function HomeScreen() {
               style={{ marginBottom: 50 }}
             >
               {trending.length > 0 && <TrendingMovies data={trending} />}
+
+              {upcoming.length > 0 && <MovieList title="Upcoming" data={upcoming} />}
 
             </ScrollView>
           )
