@@ -1,18 +1,19 @@
 import axios from 'axios';
+import { apiKey } from '../constants';
 
-const apiKey = 'f2c9b612cb6364f8beadd512476a4cca';
 const apiBaseUrl = 'https://api.themoviedb.org/3';
+const userApiKey = apiKey;
 
-const trendingMoviesEndpoint = `${apiBaseUrl}/trending/movie/day?api_key=${apiKey}`;
-const upcomingMoviesEndpoint = `${apiBaseUrl}/movie/upcoming?api_key=${apiKey}`;
-const topRatedMoviesEndpoint = `${apiBaseUrl}/movie/top_rated?api_key=${apiKey}`;
-const searchMoviesEndpoint = `${apiBaseUrl}/search/movie?api_key=${apiKey}`;
+const trendingMoviesEndpoint = `${apiBaseUrl}/trending/movie/day?api_key=${userApiKey}`;
+const upcomingMoviesEndpoint = `${apiBaseUrl}/movie/upcoming?api_key=${userApiKey}`;
+const topRatedMoviesEndpoint = `${apiBaseUrl}/movie/top_rated?api_key=${userApiKey}`;
+const searchMoviesEndpoint = `${apiBaseUrl}/search/movie?api_key=${userApiKey}`;
 
-const movieDetailsEndpoint = (id) => `${apiBaseUrl}/movie/${id}?api_key=${apiKey}`;
-const movieCreditsEndpoint = (id) => `${apiBaseUrl}/movie/${id}/credits?api_key=${apiKey}`;
-const similarMoviesEndpoint = (id) => `${apiBaseUrl}/movie/${id}/similar?api_key=${apiKey}`;
-const actorDetailsEndpoint = (id) => `${apiBaseUrl}/person/${id}?api_key=${apiKey}`;
-const actorMoviesEndpoint = (id) => `${apiBaseUrl}/person/${id}/movie_credits?api_key=${apiKey}`;
+const movieDetailsEndpoint = (id) => `${apiBaseUrl}/movie/${id}?api_key=${userApiKey}`;
+const movieCreditsEndpoint = (id) => `${apiBaseUrl}/movie/${id}/credits?api_key=${userApiKey}`;
+const similarMoviesEndpoint = (id) => `${apiBaseUrl}/movie/${id}/similar?api_key=${userApiKey}`;
+const actorDetailsEndpoint = (id) => `${apiBaseUrl}/person/${id}?api_key=${userApiKey}`;
+const actorMoviesEndpoint = (id) => `${apiBaseUrl}/person/${id}/movie_credits?api_key=${userApiKey}`;
 
 export const image500 = (posterPath) => posterPath ? `https://image.tmdb.org/t/p/w500${posterPath}` : null;
 export const image342 = (posterPath) => posterPath ? `https://image.tmdb.org/t/p/w342${posterPath}` : null;

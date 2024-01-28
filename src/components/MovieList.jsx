@@ -14,7 +14,7 @@ export default function MovieList({ title, data }) {
 
   return (
     <View className="pb-8 space-y-4 bg-neutral-900">
-      <View className="flex flex-row inline-block mx-4 mb-8 items-center">
+      <View className="flex flex-row inline-block mx-4 items-center">
         <View style={{ margin: isLargeScreen ? 200 : 10 }}>
           {
             title === 'Upcoming' ? (
