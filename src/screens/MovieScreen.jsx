@@ -1,13 +1,13 @@
-import { View, Text, Dimensions, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { fallbackMoviePoster, fetchMovieDetails, fetchMovieCredits, fetchSimilarMovies, image500 } from '../api/moviedb';
 import { useEffect, useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { ChevronLeftIcon } from 'react-native-heroicons/outline';
 import Cast from '../components/Cast';
 import MovieList from '../components/MovieList';
 import Spinner from '../components/Spinner';
-import { fallbackMoviePoster, fetchMovieDetails, fetchMovieCredits, fetchSimilarMovies, image500 } from '../api/moviedb';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { ChevronLeftIcon } from 'react-native-heroicons/outline';
+import { LinearGradient } from 'expo-linear-gradient';
+import { View, Text, Dimensions, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { theme } from '../theme';
 
 const { width, height } = Dimensions.get('window');
@@ -34,7 +34,7 @@ export default function MovieScreen() {
     if (data) {
       setMovie({ ...movie, ...data });
     }
-  }
+  };
 
   const getMovieCredits = async id => {
     const data = await fetchMovieCredits(id);
@@ -42,21 +42,21 @@ export default function MovieScreen() {
     if (data && data.cast) {
       setCast(data.cast);
     }
-  }
+  };
 
   const getSimilarMovies = async id => {
     const data = await fetchSimilarMovies(id);
 
     if (data && data.results) {
-        setSimilarMovies(data.results);
+      setSimilarMovies(data.results);
     }
-  }
+  };
 
   return (
     <ScrollView
       contentContainerStyle={{ paddingBottom: 20 }}
-      className="flex-1 bg-neutral-900"
       stickyHeaderIndices={[0]}
+      className="flex-1 bg-neutral-900"
     >
 
       <SafeAreaView
@@ -66,7 +66,6 @@ export default function MovieScreen() {
           <ChevronLeftIcon size="28" strokeWidth={2.5} color="white" />
         </TouchableOpacity>
       </SafeAreaView>
-
 
       <View className="w-full">
         {
@@ -92,36 +91,40 @@ export default function MovieScreen() {
       </View>
 
       <View style={{ marginTop: -(height * 0.09) }} className="space-y-3">
+        <Text
+          className="text-white text-center text-3xl font-bold tracking-widest"
+          style={{ color: theme.red }}
+        >
+          {movie?.title}
+        </Text>
 
-          <Text className="text-white text-center text-3xl font-bold tracking-widest">
-              {movie?.title}
-          </Text>
+        {
+          movie?.id ? (
+            <Text className="text-neutral-400 font-semibold text-base text-center">
+              {movie?.status} • {movie?.release_date?.split('-')[0] || 'N/A'} • {movie?.runtime} min
+            </Text>
+          ) : null
+        }
 
+        <View className="flex-row justify-center mx-4 space-x-2">
           {
-            movie?.id ? (
-              <Text className="text-neutral-400 font-semibold text-base text-center">
-                {movie?.status} • {movie?.release_date?.split('-')[0] || 'N/A'} • {movie?.runtime} min
-              </Text>
-            ) : null
+            movie?.genres?.map((genre, index) => {
+              let showDot = index + 1 != movie.genres.length;
+
+              return (
+                <Text key={index} className="text-neutral-400 font-semibold text-base text-center">
+                  {genre?.name} {showDot ? "•" : null}
+                </Text>
+              )
+            })
           }
+        </View>
 
-          <View className="flex-row justify-center mx-4 space-x-2">
-            {
-              movie?.genres?.map((genre, index) => {
-                let showDot = index + 1 != movie.genres.length;
-
-                return (
-                  <Text key={index} className="text-neutral-400 font-semibold text-base text-center">
-                    {genre?.name} {showDot ? "•" : null}
-                  </Text>
-                )
-              })
-            }
-          </View>
-
-          <Text className="text-neutral-400 mx-4 tracking-wide">
-            {movie?.overview}
-          </Text>
+        <Text
+          className="text-neutral-400 text-lg mx-4 tracking-wide"
+        >
+          {movie?.overview}
+        </Text>
       </View>
 
       {movie?.id && cast.length > 0 && <Cast navigation={navigation} cast={cast} />}

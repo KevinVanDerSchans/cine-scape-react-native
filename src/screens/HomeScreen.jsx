@@ -1,14 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
-import { useEffect, useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useNavigation } from '@react-navigation/native';
-import { Bars3CenterLeftIcon, FilmIcon, MagnifyingGlassIcon } from 'react-native-heroicons/outline';
-import Spinner from '../components/Spinner';
-import MovieList from '../components/MovieList';
-import TrendingMovies from '../components/TrendingMovies';
-import { fetchTrendingMovies, fetchUpcomingMovies, fetchTopRatedMovies } from '../api/moviedb';
-import { theme } from '../theme';
+import { fetchTrendingMovies, fetchUpcomingMovies, fetchTopRatedMovies } from "../api/moviedb";
+import { useEffect, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { StatusBar } from "expo-status-bar";
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
+import { Bars3CenterLeftIcon, FilmIcon, MagnifyingGlassIcon } from "react-native-heroicons/outline";
+import Spinner from "../components/Spinner";
+import MovieList from "../components/MovieList";
+import TrendingMovies from "../components/TrendingMovies";
+import { theme } from "../theme";
+
 
 export default function HomeScreen() {
   const [trending, setTrending] = useState([]);
@@ -43,27 +44,25 @@ export default function HomeScreen() {
 
     if (data && data.results)
       setTopRated(data.results);
-  }
-
+  };
 
   return (
     <View className="flex-1 bg-blue-500">
-
       <SafeAreaView>
-        <StatusBar style='light' />
+        <StatusBar style="dark" />
 
-        <View className="flex-row justify-between items-center mx-4 my-2 mb-3">
-          <Bars3CenterLeftIcon size='30' strokeWidth={2} color={theme.text} />
+        <View className="flex-row justify-between items-center mx-4 my-5 mb-3">
+          <Bars3CenterLeftIcon size="30" strokeWidth={2.5} color={theme.text} />
 
           <View className="flex-row">
-            <FilmIcon size='30' color={theme.title} />
-            <Text className='text-white text-xl font-bold'>
+            <FilmIcon size="30" color={theme.title} />
+            <Text className="text-white text-xl font-bold">
               <Text> CineScape</Text>
             </Text>
           </View>
 
-          <TouchableOpacity onPress={() => navigation.navigate('Search')}>
-            <MagnifyingGlassIcon size='30' color={theme.text} strokeWidth={2} />
+          <TouchableOpacity onPress={() => navigation.navigate("Search")}>
+            <MagnifyingGlassIcon size="28" color={theme.text} strokeWidth={2.5} />
           </TouchableOpacity>
         </View>
 
@@ -82,7 +81,6 @@ export default function HomeScreen() {
               {upcoming.length > 0 && <MovieList title="Upcoming" data={upcoming} />}
 
               {topRated.length > 0 && <MovieList title="Top Rated" data={topRated} />}
-
             </ScrollView>
           )
         }

@@ -1,18 +1,17 @@
-import { View, Text, Image, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
 import { useEffect, useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { ChevronLeftIcon } from 'react-native-heroicons/outline';
+import { fallbackPersonImage, fetchPersonDetails, fetchPersonMovies, image342 } from '../api/moviedb';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import MovieList from '../components/MovieList';
 import Spinner from '../components/Spinner';
-import { fallbackPersonImage, fetchPersonDetails, fetchPersonMovies, image342 } from '../api/moviedb';
+import { View, Text, Image, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
+import { ChevronLeftIcon } from 'react-native-heroicons/outline';
 import { theme } from '../theme';
 
 const { width, height } = Dimensions.get('window');
 
 
 export default function ActorScreen() {
-
   const { params: item } = useRoute();
   const navigation = useNavigation();
   const [person, setPerson] = useState({});
@@ -32,7 +31,7 @@ export default function ActorScreen() {
     if (data) {
       setPerson(data);
     }
-  }
+  };
 
   const getPersonMovies = async id => {
     const data = await fetchPersonMovies(id);
@@ -40,7 +39,7 @@ export default function ActorScreen() {
     if (data && data.cast) {
       setPersonMovies(data.cast);
     }
-  }
+  };
 
   return (
     <ScrollView
@@ -120,7 +119,7 @@ export default function ActorScreen() {
 
               <View className="my-6 mx-4 space-y-2">
                 <Text className="text-white text-lg">Biography</Text>
-                <Text className="text-neutral-400 tracking-wide">
+                <Text className="text-neutral-400 text-lg tracking-wide">
                   {person?.biography ? person.biography : 'N/A'}
                 </Text>
               </View>
