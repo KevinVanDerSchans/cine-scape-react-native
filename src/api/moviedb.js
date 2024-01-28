@@ -11,15 +11,15 @@ const searchMoviesEndpoint = `${apiBaseUrl}/search/movie?api_key=${apiKey}`;
 const movieDetailsEndpoint = (id) => `${apiBaseUrl}/movie/${id}?api_key=${apiKey}`;
 const movieCreditsEndpoint = (id) => `${apiBaseUrl}/movie/${id}/credits?api_key=${apiKey}`;
 const similarMoviesEndpoint = (id) => `${apiBaseUrl}/movie/${id}/similar?api_key=${apiKey}`;
-const personDetailsEndpoint = (id) => `${apiBaseUrl}/person/${id}?api_key=${apiKey}`;
-const personMoviesEndpoint = (id) => `${apiBaseUrl}/person/${id}/movie_credits?api_key=${apiKey}`;
+const actorDetailsEndpoint = (id) => `${apiBaseUrl}/person/${id}?api_key=${apiKey}`;
+const actorMoviesEndpoint = (id) => `${apiBaseUrl}/person/${id}/movie_credits?api_key=${apiKey}`;
 
 export const image500 = (posterPath) => posterPath ? `https://image.tmdb.org/t/p/w500${posterPath}` : null;
 export const image342 = (posterPath) => posterPath ? `https://image.tmdb.org/t/p/w342${posterPath}` : null;
 export const image185 = (posterPath) => posterPath ? `https://image.tmdb.org/t/p/w185${posterPath}` : null;
 
 export const fallbackMoviePoster = 'https://www.altavod.com/assets/images/poster-placeholder.png';
-export const fallbackPersonImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmUiF-YGjavA63_Au8jQj7zxnFxS_Ay9xc6pxleMqCxH92SzeNSjBTwZ0l61E4B3KTS7o&usqp=CAU';
+export const fallbackActorImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmUiF-YGjavA63_Au8jQj7zxnFxS_Ay9xc6pxleMqCxH92SzeNSjBTwZ0l61E4B3KTS7o&usqp=CAU';
 
 
 const apiCall = async (endpoint, params) => {
@@ -63,12 +63,12 @@ export const fetchSimilarMovies = (movieId) => {
   return apiCall(similarMoviesEndpoint(movieId));
 }
 
-export const fetchPersonDetails = (personId) => {
-  return apiCall(personDetailsEndpoint(personId));
+export const fetchActorDetails = (actorId) => {
+  return apiCall(actorDetailsEndpoint(actorId));
 }
 
-export const fetchPersonMovies = (personId) => {
-  return apiCall(personMoviesEndpoint(personId));
+export const fetchActorMovies = (actorId) => {
+  return apiCall(actorMoviesEndpoint(actorId));
 }
 
 export const searchMovies = (params) => {

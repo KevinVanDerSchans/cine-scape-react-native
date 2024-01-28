@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, ScrollView, TouchableOpacity, Image } from 'react-native';
-import { fallbackPersonImage, image185 } from '../api/moviedb';
+import { fallbackActorImage, image185 } from '../api/moviedb';
 
 
 export default function Cast({ cast, navigation }) {
@@ -15,11 +15,11 @@ export default function Cast({ cast, navigation }) {
         contentContainerStyle={{ paddingHorizontal: 15 }}
       >
         {
-          cast && cast.map((person, index) => {
+          cast && cast.map((actor, index) => {
             return (
               <TouchableOpacity
                 key={index}
-                onPress={() => navigation.navigate('Actor', person)}
+                onPress={() => navigation.navigate('Actor', actor)}
                 className="mr-4 items-center"
               >
                 <View
@@ -27,16 +27,16 @@ export default function Cast({ cast, navigation }) {
                 >
                   <Image
                     className="rounded-2xl h-24 w-20"
-                    source={{ uri: image185(person?.profile_path) || fallbackPersonImage }}
+                    source={{ uri: image185(actor?.profile_path) || fallbackActorImage }}
                   />
                 </View>
 
                 <Text className="text-white text-xs mt-1">
-                  {person?.character.length > 10 ? person.character.slice(0, 10) + '...' : person?.character}
+                  {actor?.character.length > 10 ? actor.character.slice(0, 10) + '...' : actor?.character}
                 </Text>
 
                 <Text className="text-neutral-400 text-xs">
-                  {person?.original_name.length > 10 ? person.original_name.slice(0, 10) + '...' : person?.original_name}
+                  {actor?.original_name.length > 10 ? actor.original_name.slice(0, 10) + '...' : actor?.original_name}
                 </Text>
               </TouchableOpacity>
             )
