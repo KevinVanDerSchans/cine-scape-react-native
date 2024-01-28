@@ -1,44 +1,35 @@
 import React from 'react';
-import { View, Text, ScrollView, TouchableWithoutFeedback, Image, Dimensions, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { View, Text, ScrollView, TouchableWithoutFeedback, Image, Dimensions } from 'react-native';
 import { fallbackMoviePoster, image185 } from '../api/moviedb';
 import { ForwardIcon, TrophyIcon, VideoCameraIcon } from 'react-native-heroicons/solid';
-import { useNavigation } from '@react-navigation/native';
 import { theme } from '../theme';
 
 const { width, height } = Dimensions.get('window');
 const isLargeScreen = width >= 768;
 
-export default function MovieList({ title, hideSeeAll, data }) {
 
+export default function MovieList({ title, data }) {
   const navigation = useNavigation();
 
   return (
-    <View className="mb-8 space-y-4 bg-black">
-
-      <View className="mx-4 py-4 flex-row justify-between items-center">
+    <View className="pb-8 space-y-4 bg-neutral-900">
+      <View className="flex flex-row inline-block mx-4 mb-8 items-center">
         <View style={{ margin: isLargeScreen ? 200 : 10 }}>
           {
             title === 'Upcoming' ? (
-              <ForwardIcon size='25' color={theme.liked} />
+              <ForwardIcon size='25' color={theme.red} />
 
             ) : title === 'Top Rated' ? (
-              <TrophyIcon size='25' color={theme.liked} />
+              <TrophyIcon size='25' color={theme.red} />
 
             ) : (
 
-              <VideoCameraIcon size='25' color={theme.liked} />
+              <VideoCameraIcon size='25' color={theme.red} />
             )
           }
             <Text className="text-white text-lg">  {title}</Text>
         </View>
-
-        {
-          !hideSeeAll && (
-            <TouchableOpacity>
-              <Text style={{ color: theme.title }} className="text-lg">See All</Text>
-            </TouchableOpacity>
-          )
-        }
       </View>
 
       <ScrollView

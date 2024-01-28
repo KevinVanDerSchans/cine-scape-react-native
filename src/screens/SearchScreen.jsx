@@ -1,10 +1,10 @@
-import { View, Text, TextInput, TouchableOpacity, Image, ScrollView, TouchableWithoutFeedback, Dimensions } from 'react-native';
 import { useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { XMarkIcon } from 'react-native-heroicons/outline';
 import { useNavigation } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Spinner from '../components/Spinner';
 import { fallbackMoviePoster, image185, searchMovies } from '../api/moviedb';
+import { View, Text, TextInput, TouchableOpacity, Image, ScrollView, TouchableWithoutFeedback, Dimensions } from 'react-native';
+import { XMarkIcon } from 'react-native-heroicons/outline';
 
 const { width, height } = Dimensions.get('window');
 
@@ -46,16 +46,15 @@ export default function SearchScreen() {
       >
         <TextInput
           onChangeText={handleTextDebounce}
-          placeholder="Search Movie"
+          placeholder="Search your movie..."
           placeholderTextColor={'lightgray'}
           className="pb-1 pl-6 flex-1 text-base font-semibold text-white tracking-wider"
         />
         <TouchableOpacity
-            onPress={() => navigation.navigate('Home')}
-            className="rounded-full p-3 m-1 bg-neutral-500"
+          onPress={() => navigation.navigate('Home')}
+          className="rounded-full p-3 m-1 bg-neutral-500"
         >
           <XMarkIcon size="25" color="white" />
-
         </TouchableOpacity>
       </View>
 
@@ -82,8 +81,8 @@ export default function SearchScreen() {
                         <View className="space-y-2 mb-4">
                           <Image
                             source={{ uri: image185(item.poster_path) || fallbackMoviePoster }}
-                            className="rounded-3xl"
                             style={{ width: width * 0.44, height: height * 0.3 }}
+                            className="rounded-3xl"
                           />
                           <Text className="text-gray-300 ml-1">
                             {
@@ -99,14 +98,14 @@ export default function SearchScreen() {
 
             </ScrollView>
           ) : (
-            <View className="flex-row justify-center">
-              <Image
-                source={require('../../public/movieTime.png')}
-                className="h-96 w-96"
-              />
-            </View>
+          <View className="flex-row justify-center">
+            <Image
+              source={require('../../public/movieTime.png')}
+              className="h-96 w-96"
+            />
+          </View>
         )
       }
     </SafeAreaView>
   )
-}
+};
