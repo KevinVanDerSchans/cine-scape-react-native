@@ -1,6 +1,6 @@
-import React from 'react';
-import { View, ActivityIndicator } from 'react-native';
-import { theme } from '../theme';
+import React from "react";
+import { View, ActivityIndicator } from "react-native";
+import { theme } from "../theme";
 
 export default function Spinner() {
   return (

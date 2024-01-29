@@ -1,29 +1,29 @@
-import React from 'react';
-import { useNavigation } from '@react-navigation/native';
-import Carousel from 'react-native-snap-carousel';
+import React from "react";
+import { useNavigation } from "@react-navigation/native";
+import Carousel from "react-native-snap-carousel";
 import { View, Text, Image, TouchableWithoutFeedback, Dimensions } from "react-native";
-import { ArrowTrendingUpIcon } from 'react-native-heroicons/solid';
-import { image500 } from './../api/fetchers';
-import { theme } from '../theme';
+import { ArrowTrendingUpIcon } from "react-native-heroicons/solid";
+import { image500 } from "./../api/fetchers";
+import { theme } from "../theme";
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 
 
 export default function TrendingMovies({ data }) {
   const navigation = useNavigation();
 
   const handleClick = (item) => {
-    navigation.navigate('Movie', item);
+    navigation.navigate("Movie", item);
   };
 
   return (
     <View className="py-4 bg-neutral-900">
       <View className="flex-row mx-4 mb-8 items-center">
-        <ArrowTrendingUpIcon size='28' color={theme.red} />
+        <ArrowTrendingUpIcon size="28" color={theme.red} />
         <Text
           className="text-white text-xl"
           accessible
-          accessibilityLabel='Trending List'
+          accessibilityLabel="Trending List"
         >  Trending
         </Text>
       </View>
@@ -36,7 +36,7 @@ export default function TrendingMovies({ data }) {
         inactiveSlideOpacity={0.60}
         sliderWidth={width}
         itemWidth={width * 0.62}
-        slideStyle={{ display: 'flex', alignItems: 'center' }}
+        slideStyle={{ display: "flex", alignItems: "center" }}
       />
     </View>
   )

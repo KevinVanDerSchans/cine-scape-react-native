@@ -1,6 +1,6 @@
-import React from 'react';
-import { View, Text, ScrollView, TouchableOpacity, Image } from 'react-native';
-import { fallbackActorImage, image185 } from '../api/fetchers';
+import React from "react";
+import { View, Text, ScrollView, TouchableOpacity, Image } from "react-native";
+import { fallbackActorImage, image185 } from "../api/fetchers";
 
 
 export default function Cast({ cast, navigation }) {
@@ -10,7 +10,7 @@ export default function Cast({ cast, navigation }) {
       <Text
         className="text-white text-lg mx-4 mb-5"
         accessible
-        accessibilityLabel='Top Cast'
+        accessibilityLabel="Top Cast"
       >
         Top Cast
       </Text>
@@ -25,7 +25,7 @@ export default function Cast({ cast, navigation }) {
             return (
               <TouchableOpacity
                 key={index}
-                onPress={() => navigation.navigate('Actor', actor)}
+                onPress={() => navigation.navigate("Actor", actor)}
                 className="mr-4 items-center"
               >
                 <View
@@ -43,7 +43,7 @@ export default function Cast({ cast, navigation }) {
                   accessible
                   accessibilityLabel={`Actor: ${actor?.character}`}
                 >
-                  {actor?.character.length > 10 ? actor.character.slice(0, 10) + '...' : actor?.character}
+                  {actor?.character.length > 10 ? actor.character.slice(0, 10) + "..." : actor?.character}
                 </Text>
 
                 <Text
@@ -51,7 +51,7 @@ export default function Cast({ cast, navigation }) {
                   accessible
                   accessibilityLabel={`Actor full name ${actor?.original_name}`}
                 >
-                  {actor?.original_name.length > 10 ? actor.original_name.slice(0, 10) + '...' : actor?.original_name}
+                  {actor?.original_name.length > 10 ? actor.original_name.slice(0, 10) + "..." : actor?.original_name}
                 </Text>
               </TouchableOpacity>
             )

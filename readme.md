@@ -16,7 +16,7 @@
 
 <div>
 
-    Frontend connected to the MOVIEDB API that allows you to search its database for
+    Frontend connected to TMDB API that allows you to browse its database to find
     your favorite movies and actors. Built with React Native, Expo and NativeWind.
 
 </div>
@@ -25,7 +25,56 @@
 
 ## Project Setup
 
+  ### 1º Install dev dependencies
 
+  `npm install`
+
+
+  ### 2º Moviedb API
+
+  [The Movie Database (TMDB)](https://www.themoviedb.org/)
+
+    Click on the link.
+
+    Create an account (fast and free).
+
+    Go to 'Edit Profile'.
+
+    In Settings, go to 'API'.
+
+    Copy the API Key.
+
+    Rename the .env.template file to .env
+
+    Paste it in the apiKey variable.
+
+
+  ### 3º Run the APP
+
+  `npm start`
+
+  Runs the APP in development mode.
+
+  <br>
+
+  `Expo Go`
+
+  Download [Expo APP](https://expo.io) on your phone to view it.
+  You will be able to see your changes, build errors and logs in the terminal.
+
+  <br>
+
+  `npm run ios`
+
+  Like npm start but also attempts to open your APP in the
+  iOS Simulator if you're on a Mac and have it installed.
+
+  <br>
+
+  `npm run android`
+
+  Like npm start but also attempts to open your APP on a connected Android
+  device or emulator. Requires an installation of [Android build tools](https://developer.android.com/studio).
 
 <br>
 
@@ -49,8 +98,6 @@
 
     ✔️ Focus on accessibility
 
-
-
 </div>
 
 <br>
@@ -65,7 +112,7 @@
         - Top Rated Movies
 
     ⚛️ SEARCH ENGINE
-          Up to 20 results related to the title of the movie we have searched for
+          Up to 20 results related to the title of the Movie we have searched for
 
     ⚛️ MOVIE DETAIL PAGE
         - Movie image
@@ -91,7 +138,6 @@
           Used for loading elements
 
 </div>
-
 
 <br>
 

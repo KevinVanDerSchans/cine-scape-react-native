@@ -34,8 +34,8 @@ export default function HomeScreen() {
       console.error("Error getting TrendingMovies: ", error);
 
       Toast.show({
-        type: 'error',
-        text1: 'Error',
+        type: "error",
+        text1: "Error",
         text2: error.message,
         visibilityTime: 3000,
         autoHide: true,
@@ -55,8 +55,8 @@ export default function HomeScreen() {
       console.error("Error getting UpcomingMovies: ", error);
 
       Toast.show({
-        type: 'error',
-        text1: 'Error',
+        type: "error",
+        text1: "Error",
         text2: error.message,
         visibilityTime: 3000,
         autoHide: true,
@@ -75,8 +75,8 @@ export default function HomeScreen() {
       console.error("Error getting TopRatedMovies: ", error);
 
       Toast.show({
-        type: 'error',
-        text1: 'Error',
+        type: "error",
+        text1: "Error",
         text2: error.message,
         visibilityTime: 3000,
         autoHide: true,
@@ -88,9 +88,9 @@ export default function HomeScreen() {
 
   const handleIconClick = () => {
     Toast.show({
-      type: 'info',
-      text1: 'Function not currently available',
-      text2: 'It will be implemented in the next version',
+      type: "info",
+      text1: "Function not currently available",
+      text2: "It will be implemented in the next version",
       visibilityTime: 4000,
       autoHide: true,
       topOffset: 30,
@@ -123,7 +123,7 @@ export default function HomeScreen() {
             <Text
               className="text-white text-xl font-bold"
               accessible
-              accessibilityLabel='CineScape'
+              accessibilityLabel="CineScape"
             >
               CineScape
             </Text>

@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import { fallbackActorImage, fetchActorDetails, fetchActorMovies, image342 } from '../api/fetchers';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import MovieList from '../components/MovieList';
-import Spinner from '../components/Spinner';
-import { View, Text, Image, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
-import { ChevronLeftIcon } from 'react-native-heroicons/outline';
-import { theme } from '../theme';
+import { useEffect, useState } from "react";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import { fallbackActorImage, fetchActorDetails, fetchActorMovies, image342 } from "../api/fetchers";
+import { SafeAreaView } from "react-native-safe-area-context";
+import MovieList from "../components/MovieList";
+import Spinner from "../components/Spinner";
+import { View, Text, Image, TouchableOpacity, Dimensions, ScrollView } from "react-native";
+import { ChevronLeftIcon } from "react-native-heroicons/outline";
+import { theme } from "../theme";
 import Toast from "react-native-toast-message";
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 
 
 export default function ActorScreen() {
@@ -37,8 +37,8 @@ export default function ActorScreen() {
       console.error("Error getting ActorDetails: ", error);
 
       Toast.show({
-        type: 'error',
-        text1: 'Error',
+        type: "error",
+        text1: "Error",
         text2: error.message,
         visibilityTime: 3000,
         autoHide: true,
@@ -63,8 +63,8 @@ export default function ActorScreen() {
       console.error("Error getting ActorMovies: ", error);
 
       Toast.show({
-        type: 'error',
-        text1: 'Error',
+        type: "error",
+        text1: "Error",
         text2: error.message,
         visibilityTime: 3000,
         autoHide: true,
@@ -99,7 +99,7 @@ export default function ActorScreen() {
                 <View
                   className="items-center rounded-full overflow-hidden h-72 w-72 border-neutral-500 border-2"
                   style={{
-                    shadowColor: 'white',
+                    shadowColor: "white",
                     elevation: 50,
                   }}
                 >
@@ -134,7 +134,7 @@ export default function ActorScreen() {
                   <Text
                     className="text-white font-semibold"
                     accessible
-                    accessibilityLabel='Actor gender'
+                    accessibilityLabel="Actor gender"
                   >Gender
                   </Text>
 
@@ -143,7 +143,7 @@ export default function ActorScreen() {
                     accessible
                     accessibilityLabel={`Actor gender: ${actor?.gender}`}
                   >
-                    {actor?.gender == 1 ? 'Female' : 'Male'}
+                    {actor?.gender == 1 ? "Female" : "Male"}
                   </Text>
                 </View>
 
@@ -151,7 +151,7 @@ export default function ActorScreen() {
                   <Text
                     className="text-white font-semibold"
                     accessible
-                    accessibilityLabel='Actor birthday'
+                    accessibilityLabel="Actor birthday"
                   >Birthday
                   </Text>
 
@@ -168,7 +168,7 @@ export default function ActorScreen() {
                   <Text
                     className="text-white font-semibold"
                     accessible
-                    accessibilityLabel='Known for'
+                    accessibilityLabel="Known for"
                   >known for
                   </Text>
 
@@ -185,7 +185,7 @@ export default function ActorScreen() {
                   <Text
                     className="text-white font-semibold"
                     accessible
-                    accessibilityLabel='Popularity'
+                    accessibilityLabel="Popularity"
                   >Popularity
                   </Text>
 
@@ -203,7 +203,7 @@ export default function ActorScreen() {
                 <Text
                   className="text-white text-lg"
                   accessible
-                  accessibilityLabel='Biography'
+                  accessibilityLabel="Biography"
                 >Biography
                 </Text>
 
@@ -212,7 +212,7 @@ export default function ActorScreen() {
                   accessible
                   accessibilityLabel={`${actor?.biography}`}
                 >
-                  {actor?.biography ? actor.biography : 'N/A'}
+                  {actor?.biography ? actor.biography : "N/A"}
                 </Text>
               </View>
           </View>

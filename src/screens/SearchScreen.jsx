@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import Spinner from '../components/Spinner';
-import { fallbackMoviePoster, image185, searchMovies } from '../api/fetchers';
-import { View, Text, TextInput, TouchableOpacity, Image, ScrollView, TouchableWithoutFeedback, Dimensions } from 'react-native';
-import { XMarkIcon } from 'react-native-heroicons/outline';
+import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import Spinner from "../components/Spinner";
+import { fallbackMoviePoster, image185, searchMovies } from "../api/fetchers";
+import { View, Text, TextInput, TouchableOpacity, Image, ScrollView, TouchableWithoutFeedback, Dimensions } from "react-native";
+import { XMarkIcon } from "react-native-heroicons/outline";
 import Toast from "react-native-toast-message";
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 
 
 export default function SearchScreen() {
@@ -23,8 +23,8 @@ export default function SearchScreen() {
         const data = await searchMovies({
           query: search,
           include_adult: false,
-          language: 'en-US',
-          page: '1'
+          language: "en-US",
+          page: "1"
         });
 
         if (data && data.results) {
@@ -38,8 +38,8 @@ export default function SearchScreen() {
         console.error("Error trying to search for movies: ", error);
 
         Toast.show({
-          type: 'error',
-          text1: 'Error',
+          type: "error",
+          text1: "Error",
           text2: error.message,
           visibilityTime: 3000,
           autoHide: true,
@@ -70,13 +70,13 @@ export default function SearchScreen() {
         <TextInput
           onChangeText={handleTextDebounce}
           placeholder="Search your movie..."
-          placeholderTextColor={'lightgray'}
+          placeholderTextColor={"lightgray"}
           className="pb-1 pl-6 flex-1 text-base font-semibold text-white tracking-wider"
           accessible
-          accessibilityLabel='Search your movie...'
+          accessibilityLabel="Search your movie..."
         />
         <TouchableOpacity
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => navigation.navigate("Home")}
           className="rounded-full p-3 m-1 bg-neutral-500"
         >
           <XMarkIcon size="25" color="white" />
@@ -96,7 +96,7 @@ export default function SearchScreen() {
               <Text
                 className="text-white font-semibold ml-1"
                 accessible
-                accessibilityLabel='Results'
+                accessibilityLabel="Results"
               >
                   Results ({results.length})
               </Text>
@@ -107,7 +107,7 @@ export default function SearchScreen() {
                     return (
                       <TouchableWithoutFeedback
                         key={index}
-                        onPress={() => navigation.push('Movie', item)}
+                        onPress={() => navigation.push("Movie", item)}
                       >
                         <View className="space-y-2 mb-4">
                           <Image
@@ -122,7 +122,7 @@ export default function SearchScreen() {
                             accessibilityLabel={`${item.title}`}
                           >
                             {
-                              item.title.length > 22 ? item.title.slice(0, 22) + '...' : item.title
+                              item.title.length > 22 ? item.title.slice(0, 22) + "..." : item.title
                             }
                           </Text>
                         </View>
@@ -136,7 +136,7 @@ export default function SearchScreen() {
           ) : (
           <View className="flex-row justify-center">
             <Image
-              source={require('../../public/movieTime.png')}
+              source={require("../../public/movieTime.png")}
               className="h-96 w-96"
               accessibilityLabel="Movie time"
             />
