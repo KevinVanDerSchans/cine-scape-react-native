@@ -28,7 +28,12 @@ export default function MovieList({ title, data }) {
               <VideoCameraIcon size='25' color={theme.red} />
             )
           }
-            <Text className="text-white text-lg">  {title}</Text>
+            <Text
+              className="text-white text-lg"
+              accessible
+              accessibilityLabel={`${title}`}
+            >  {title}
+            </Text>
         </View>
       </View>
 
@@ -49,8 +54,13 @@ export default function MovieList({ title, data }) {
                     source={{ uri: image185(item.poster_path) || fallbackMoviePoster }}
                     className="rounded-3xl"
                     style={{ width: width * 0.33, height: height * 0.22 }}
+                    alt="Fallback Poster image"
                   />
-                  <Text className="text-neutral-300 ml-1">
+                  <Text
+                    className="text-neutral-300 ml-1"
+                    accessible
+                    accessibilityLabel={`${item.title}`}
+                  >
                     {
                       item.title.length > 14 ? item.title.slice(0, 14) + '...' : item.title
                     }

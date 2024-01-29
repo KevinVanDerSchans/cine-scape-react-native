@@ -113,8 +113,17 @@ export default function HomeScreen() {
 
           <View className="flex-row">
             <FilmIcon size="30" color={theme.title} />
-            <Text className="text-white text-xl font-bold">
-              <Text> CineScape</Text>
+            <Text
+              className="text-white text-xl font-bold"
+              accessible
+              accessibilityLabel='CineScape'
+            >
+              <Text
+                accessible
+                accessibilityLabel='CineScape'
+              >
+              CineScape
+              </Text>
             </Text>
           </View>
 

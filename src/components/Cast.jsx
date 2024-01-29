@@ -7,7 +7,13 @@ export default function Cast({ cast, navigation }) {
 
   return (
     <View className="my-6">
-      <Text className="text-white text-lg mx-4 mb-5">Top Cast</Text>
+      <Text
+        className="text-white text-lg mx-4 mb-5"
+        accessible
+        accessibilityLabel='Top Cast'
+      >
+        Top Cast
+      </Text>
 
       <ScrollView
         horizontal
@@ -28,14 +34,23 @@ export default function Cast({ cast, navigation }) {
                   <Image
                     className="rounded-2xl h-24 w-20"
                     source={{ uri: image185(actor?.profile_path) || fallbackActorImage }}
+                    alt="Fallback actor image"
                   />
                 </View>
 
-                <Text className="text-white text-xs mt-1">
+                <Text
+                  className="text-white text-xs mt-1"
+                  accessible
+                  accessibilityLabel={`Actor ${actor?.character}`}
+                >
                   {actor?.character.length > 10 ? actor.character.slice(0, 10) + '...' : actor?.character}
                 </Text>
 
-                <Text className="text-neutral-400 text-xs">
+                <Text
+                  className="text-neutral-400 text-xs"
+                  accessible
+                  accessibilityLabel={`Actor name ${actor?.original_name}`}
+                >
                   {actor?.original_name.length > 10 ? actor.original_name.slice(0, 10) + '...' : actor?.original_name}
                 </Text>
               </TouchableOpacity>
