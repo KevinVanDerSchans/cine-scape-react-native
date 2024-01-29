@@ -6,9 +6,9 @@
 
 <div align="center">
   <img
-    src="public/readme/project-overview.png"
+    src="public/readme/project-overview.jpg"
     alt="Project overview"
-    width="850"
+    width="350"
   >
 </div>
 
@@ -22,19 +22,10 @@
 </div>
 
 <br>
-<br>
 
-# Index
+## Project Setup
 
-- [CineScape](#cinescape)
-    - [React Native / Expo / NativeWind](#react-native--expo--nativewind)
-- [Index](#index)
-  - [Features](#features)
-  - [Technologies and Tools used](#technologies-and-tools-used)
-  - [Project Setup](#project-setup)
-  - [Contribution](#contribution)
-  - [Project Status](#project-status)
-  - [Project Developer](#project-developer)
+
 
 <br>
 
@@ -42,7 +33,62 @@
 
 <div>
 
-    ✔️ AP
+    ✔️ All the Movies you can imagine
+
+    ✔️ Search Engine for Movies by Title
+
+    ✔️ Tabs and Stack navigation
+
+    ✔️ Error handling
+
+    ✔️ User-friendly and functional design
+
+    ✔️ NativeWind for the styles
+
+    ✔️ User feedbacks with Toasts
+
+    ✔️ Focus on accessibility
+
+
+
+</div>
+
+<br>
+
+## Components
+
+<div>
+
+    ⚛️ DYNAMIC LISTS
+        - Trending Movies
+        - Upcoming Movies
+        - Top Rated Movies
+
+    ⚛️ SEARCH ENGINE
+          Up to 20 results related to the title of the movie we have searched for
+
+    ⚛️ MOVIE DETAIL PAGE
+        - Movie image
+        - Movie title
+        - Year of release
+        - Total running time
+        - Genre
+        - Movie overview
+        - Top Cast: Cast List
+        - Similar Movies: List of related Movies
+
+    ⚛️ ACTOR/ACTRESS PAGE
+        - Name
+        - Place of birth
+        - Gender
+        - Birthday
+        - Known for
+        - % of Popularity
+        - Biography
+        - His/her Movies
+
+    ⚛️  SPINNER
+          Used for loading elements
 
 </div>
 
@@ -54,19 +100,11 @@
 <div align="center">
   <br>
   <a href="https://reactnative.dev/" target="_blank" rel="noreferrer"> <img src="public/readme/react-native.svg" alt="React Native" width="60" height="60" style="margin-right: 24px" /></a>
-  <a href="https://www.nativewind.dev/" target="_blank" rel="noreferrer"> <img src="public/readme/nativewind.svg" alt="Nativewind" width="55" height="52" style="margin-right: 24px" /></a>
+  <a href="https://www.nativewind.dev/" target="_blank" rel="noreferrer"> <img src="public/readme/nativewind.svg" alt="Nativewind" width="55" height="50" style="margin-right: 24px" /></a>
   <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" width="60" height="60" style="margin-right: 24px" /></a>
-  <br>
-  <br>
   <a href="https://expo.dev/" target="_blank" rel="noreferrer"> <img src="public/readme/expo.svg" alt="Expo" width="60" height="60" style="margin-right: 24px" /></a>
 
 </div>
-
-<br>
-
-## Project Setup
-
-
 
 <br>
 
