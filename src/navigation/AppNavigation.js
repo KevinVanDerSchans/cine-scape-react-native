@@ -1,22 +1,53 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Ionicons } from "@expo/vector-icons";
+import { theme } from "../theme";
 
 import HomeScreen from "../screens/HomeScreen";
 import MovieScreen from "../screens/MovieScreen";
 import ActorScreen from "../screens/ActorScreen";
 import SearchScreen from "../screens/SearchScreen";
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator()
+
+function Tabs () {
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+
+          if (route.name === "Home") {
+            iconName = focused ? "ios-home" : "ios-home-outline";
+
+          } else if (route.name === "Search") {
+            iconName = focused ? "ios-search" : "ios-search-outline";
+          }
+
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: `${theme.title}`,
+        tabBarInactiveTintColor: `${theme.text}`,
+        tabBarStyle: { backgroundColor: "#275fba" },
+      })}
+  >
+      <Tab.Screen name="Home" options={{ headerShown: false }} component={HomeScreen} />
+      <Tab.Screen name="Search" options={{ headerShown: false }} component={SearchScreen} />
+    </Tab.Navigator>
+  )
+}
 
 export default function AppNavigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" options={{ headerShown: false }} component={ HomeScreen } />
+        <Stack.Screen name="Tabs" options={{ headerShown: false }} component={Tabs} />
+
         <Stack.Screen name="Movie" options={{ headerShown: false }} component={ MovieScreen } />
         <Stack.Screen name="Actor" options={{ headerShown: false }} component={ ActorScreen } />
-        <Stack.Screen name="Search" options={{ headerShown: false }} component={ SearchScreen } />
       </Stack.Navigator>
     </NavigationContainer>
   )
