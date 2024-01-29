@@ -101,7 +101,7 @@ export default function HomeScreen() {
   return (
     <View className="flex-1 bg-blue-500">
       <SafeAreaView>
-        <StatusBar style="dark" />
+        <StatusBar style="light" />
 
         <View className="flex-row justify-between items-center mx-4 my-5 mb-3">
           <Bars3CenterLeftIcon
