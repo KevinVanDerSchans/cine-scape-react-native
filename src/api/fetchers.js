@@ -1,5 +1,6 @@
 import axios from "axios";
 import { apiKey } from "../constants";
+import Toast from "react-native-toast-message";
 
 const apiBaseUrl = "https://api.themoviedb.org/3";
 const userApiKey = apiKey;
@@ -58,6 +59,17 @@ export const fetchTrendingMovies = async () => {
 
   } catch (error) {
     console.error("Error getting TrendingMovies: ", error);
+
+    Toast.show({
+      type: 'error',
+      text1: 'Error',
+      text2: error.message,
+      visibilityTime: 3000,
+      autoHide: true,
+      topOffset: 30,
+      bottomOffset: 40,
+    })
+
     return [];
   }
 }
@@ -69,6 +81,17 @@ export const fetchUpcomingMovies = async () => {
 
   } catch (error) {
     console.error("Error getting UpcomingMovies: ", error);
+
+    Toast.show({
+      type: 'error',
+      text1: 'Error',
+      text2: error.message,
+      visibilityTime: 3000,
+      autoHide: true,
+      topOffset: 30,
+      bottomOffset: 40,
+    })
+
     return [];
   }
 }
@@ -80,6 +103,17 @@ export const fetchTopRatedMovies = async () => {
 
   } catch (error) {
     console.error("Error getting TopRatedMovies: ", error);
+
+    Toast.show({
+      type: 'error',
+      text1: 'Error',
+      text2: error.message,
+      visibilityTime: 3000,
+      autoHide: true,
+      topOffset: 30,
+      bottomOffset: 40,
+    })
+
     return [];
   }
 }
@@ -91,6 +125,17 @@ export const fetchMovieDetails = async (id) => {
 
   } catch (error) {
     console.error("Error getting MovieDetails: ", error);
+
+    Toast.show({
+      type: 'error',
+      text1: 'Error',
+      text2: error.message,
+      visibilityTime: 3000,
+      autoHide: true,
+      topOffset: 30,
+      bottomOffset: 40,
+    })
+
     return [];
   }
 }
@@ -102,6 +147,17 @@ export const fetchMovieCredits = async (movieId) => {
 
   } catch (error) {
     console.error("Error getting MovieCredits: ", error);
+
+    Toast.show({
+      type: 'error',
+      text1: 'Error',
+      text2: error.message,
+      visibilityTime: 3000,
+      autoHide: true,
+      topOffset: 30,
+      bottomOffset: 40,
+    })
+
     return [];
   }
 }
@@ -113,6 +169,17 @@ export const fetchSimilarMovies = async (movieId) => {
 
   } catch (error) {
     console.error("Error getting SimilarMovies: ", error);
+
+    Toast.show({
+      type: 'error',
+      text1: 'Error',
+      text2: error.message,
+      visibilityTime: 3000,
+      autoHide: true,
+      topOffset: 30,
+      bottomOffset: 40,
+    })
+
     return [];
   }
 }
@@ -124,6 +191,17 @@ export const fetchActorDetails = async (actorId) => {
 
   } catch (error) {
     console.error("Error getting ActorDetails: ", error);
+
+    Toast.show({
+      type: 'error',
+      text1: 'Error',
+      text2: error.message,
+      visibilityTime: 3000,
+      autoHide: true,
+      topOffset: 30,
+      bottomOffset: 40,
+    })
+
     return [];
   }
 }
@@ -135,6 +213,17 @@ export const fetchActorMovies = async (actorId) => {
 
   } catch (error) {
     console.error("Error getting ActorMovies: ", error);
+
+    Toast.show({
+      type: 'error',
+      text1: 'Error',
+      text2: error.message,
+      visibilityTime: 3000,
+      autoHide: true,
+      topOffset: 30,
+      bottomOffset: 40,
+    })
+
     return [];
   }
 }
@@ -146,6 +235,17 @@ export const searchMovies = async (params) => {
 
   } catch (error) {
     console.error("Error trying to search for movies: ", error);
+
+    Toast.show({
+      type: 'error',
+      text1: 'Error',
+      text2: error.message,
+      visibilityTime: 3000,
+      autoHide: true,
+      topOffset: 30,
+      bottomOffset: 40,
+    })
+
     return [];
   }
 }
