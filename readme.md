@@ -17,7 +17,7 @@
 <div>
 
     Frontend connected to TMDB API that allows you to browse its database to find
-    your favorite movies and actors. Built with React Native, Expo and NativeWind.
+    your favorite Movies and Actors. Built with React Native, Expo and NativeWind.
 
 </div>
 
@@ -29,25 +29,31 @@
 
     npm install
 
+<br>
 
   ### 2º Moviedb API
 
   [The Movie Database (TMDB)](https://www.themoviedb.org/)
 
-  - Click on the link.
+  <div>
 
-  - Create an account (fast and free).
+    Click on the link.
 
-  - Go to 'Edit Profile'.
+    Create an account (fast and free).
 
-  - In Settings, go to 'API'.
+    Go to 'Edit Profile'.
 
-  - Copy the API Key.
+    In Settings, go to 'API'.
 
-  - Rename the .env.template file to .env
+    Copy the API Key.
 
-  - Paste it in the apiKey variable.
+    Rename the .env.template file to .env
 
+    Paste it in the apiKey variable.
+
+  </div>
+
+<br>
 
   ### 3º Run the APP
 
@@ -59,22 +65,22 @@
 
     Expo Go
 
-  Download [Expo APP](https://expo.io) on your phone to view it.
+  Download [Expo](https://expo.io) on your phone to view it.
   You will be able to see your changes, build errors and logs in the terminal.
 
   <br>
 
     npm run ios
 
-  Like npm start but also attempts to open your APP in the
-  iOS Simulator if you're on a Mac and have it installed.
+  Like ***npm start*** but also attempts to open your APP in the
+  **iOS Simulator** if you're on a **Mac** and have it installed.
 
   <br>
 
     npm run android
 
-  Like npm start but also attempts to open your APP on a connected Android
-  device or emulator. Requires an installation of [Android build tools](https://developer.android.com/studio).
+  Like ***npm start*** but also attempts to open your APP on a connected Android
+  **device** or **emulator**. Requires an installation of [Android build tools](https://developer.android.com/studio).
 
 <br>
 
