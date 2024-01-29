@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Spinner from '../components/Spinner';
-import { fallbackMoviePoster, image185, searchMovies } from '../api/moviedb';
+import { fallbackMoviePoster, image185, searchMovies } from '../api/fetchers';
 import { View, Text, TextInput, TouchableOpacity, Image, ScrollView, TouchableWithoutFeedback, Dimensions } from 'react-native';
 import { XMarkIcon } from 'react-native-heroicons/outline';
 
@@ -14,21 +14,33 @@ export default function SearchScreen() {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const handleSearch = search => {
+  const handleSearch = async (search) => {
     if (search && search.length > 2) {
       setLoading(true);
-      searchMovies({
-        query: search,
-        include_adult: false,
-        language: 'en-US',
-        page: '1'
-      }).then(data => {
+
+      try {
+        const data = await searchMovies({
+          query: search,
+          include_adult: false,
+          language: 'en-US',
+          page: '1'
+        });
+
+        if (data && data.results) {
+          setResults(data.results);
+
+        } else {
+          console.error("No results found: ", error);
+        }
+
+      } catch (error) {
+        console.error("Error trying to search for movies: ", error);
+
+      } finally {
         setLoading(false);
-        if (data && data.results) setResults(data.results);
-      })
+      }
 
     } else {
-      setLoading(false);
       setResults([]);
     }
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, ScrollView, TouchableWithoutFeedback, Image, Dimensions } from 'react-native';
-import { fallbackMoviePoster, image185 } from '../api/moviedb';
+import { fallbackMoviePoster, image185 } from '../api/fetchers';
 import { ForwardIcon, TrophyIcon, VideoCameraIcon } from 'react-native-heroicons/solid';
 import { theme } from '../theme';
 

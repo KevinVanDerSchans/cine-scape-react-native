@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, ScrollView, TouchableOpacity, Image } from 'react-native';
-import { fallbackActorImage, image185 } from '../api/moviedb';
+import { fallbackActorImage, image185 } from '../api/fetchers';
 
 
 export default function Cast({ cast, navigation }) {

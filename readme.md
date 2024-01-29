@@ -31,7 +31,6 @@
 - [Index](#index)
   - [Features](#features)
   - [Technologies and Tools used](#technologies-and-tools-used)
-  - [Lighthouse Results](#lighthouse-results)
   - [Project Setup](#project-setup)
   - [Contribution](#contribution)
   - [Project Status](#project-status)
@@ -61,18 +60,6 @@
   <br>
   <a href="https://expo.dev/" target="_blank" rel="noreferrer"> <img src="public/readme/expo.svg" alt="Expo" width="60" height="60" style="margin-right: 24px" /></a>
 
-</div>
-
-<br>
-
-## Lighthouse Results
-
-<div align="center">
-  <img
-    src="public/readme/lighthouse-results.png"
-    alt="Lighthouse results"
-    width="850"
-  >
 </div>
 
 <br>

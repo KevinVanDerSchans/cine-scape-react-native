@@ -1,4 +1,4 @@
-import { fetchTrendingMovies, fetchUpcomingMovies, fetchTopRatedMovies } from "../api/moviedb";
+import { fetchTrendingMovies, fetchUpcomingMovies, fetchTopRatedMovies } from "../api/fetchers";
 import { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -25,25 +25,34 @@ export default function HomeScreen() {
   }, []);
 
   const getTrendingMovies = async () => {
-    const data = await fetchTrendingMovies();
-
-    if (data && data.results)
+    try {
+      const data = await fetchTrendingMovies();
       setTrending(data.results);
-      setLoading(false);
+
+    } catch (error) {
+      console.error("Error getting TrendingMovies: ", error);
+    }
+    setLoading(false);
   };
 
   const getUpcomingMovies = async () => {
-    const data = await fetchUpcomingMovies();
-
-    if (data && data.results)
+    try {
+      const data = await fetchUpcomingMovies();
       setUpcoming(data.results);
+
+    } catch (error) {
+      console.error("Error getting UpcomingMovies: ", error);
+    }
   };
 
   const getTopRatedMovies = async () => {
-    const data = await fetchTopRatedMovies();
-
-    if (data && data.results)
+    try {
+      const data = await fetchTopRatedMovies();
       setTopRated(data.results);
+
+    } catch (error) {
+      console.error("Error getting TopRatedMovies: ", error);
+    }
   };
 
   return (
