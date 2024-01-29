@@ -1,12 +1,12 @@
 # CineScape
 
-### React Native / Expo / NativeWind
+### Frontend with React Native / Expo / NativeWind
 
 <br>
 
 <div align="center">
   <img
-    src="public/readme/project-overview.jpg"
+    src="public/readme/project-overview.gif"
     alt="Project overview"
     width="350"
   >
@@ -27,51 +27,51 @@
 
   ### 1º Install dev dependencies
 
-  `npm install`
+    npm install
 
 
   ### 2º Moviedb API
 
   [The Movie Database (TMDB)](https://www.themoviedb.org/)
 
-    Click on the link.
+  - Click on the link.
 
-    Create an account (fast and free).
+  - Create an account (fast and free).
 
-    Go to 'Edit Profile'.
+  - Go to 'Edit Profile'.
 
-    In Settings, go to 'API'.
+  - In Settings, go to 'API'.
 
-    Copy the API Key.
+  - Copy the API Key.
 
-    Rename the .env.template file to .env
+  - Rename the .env.template file to .env
 
-    Paste it in the apiKey variable.
+  - Paste it in the apiKey variable.
 
 
   ### 3º Run the APP
 
-  `npm start`
+    npm start
 
   Runs the APP in development mode.
 
   <br>
 
-  `Expo Go`
+    Expo Go
 
   Download [Expo APP](https://expo.io) on your phone to view it.
   You will be able to see your changes, build errors and logs in the terminal.
 
   <br>
 
-  `npm run ios`
+    npm run ios
 
   Like npm start but also attempts to open your APP in the
   iOS Simulator if you're on a Mac and have it installed.
 
   <br>
 
-  `npm run android`
+    npm run android
 
   Like npm start but also attempts to open your APP on a connected Android
   device or emulator. Requires an installation of [Android build tools](https://developer.android.com/studio).
@@ -90,13 +90,13 @@
 
     ✔️ Error handling
 
-    ✔️ User-friendly and functional design
-
-    ✔️ NativeWind for the styles
+    ✔️ Focus on accessibility
 
     ✔️ User feedbacks with Toasts
 
-    ✔️ Focus on accessibility
+    ✔️ NativeWind for the styles
+
+    ✔️ User-friendly and functional design
 
 </div>
 
@@ -125,7 +125,8 @@
         - Similar Movies: List of related Movies
 
     ⚛️ ACTOR/ACTRESS PAGE
-        - Name
+        - Actor image
+        - Full name
         - Place of birth
         - Gender
         - Birthday
@@ -145,10 +146,10 @@
 
 <div align="center">
   <br>
-  <a href="https://reactnative.dev/" target="_blank" rel="noreferrer"> <img src="public/readme/react-native.svg" alt="React Native" width="60" height="60" style="margin-right: 24px" /></a>
-  <a href="https://www.nativewind.dev/" target="_blank" rel="noreferrer"> <img src="public/readme/nativewind.svg" alt="Nativewind" width="55" height="50" style="margin-right: 24px" /></a>
-  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" width="60" height="60" style="margin-right: 24px" /></a>
-  <a href="https://expo.dev/" target="_blank" rel="noreferrer"> <img src="public/readme/expo.svg" alt="Expo" width="60" height="60" style="margin-right: 24px" /></a>
+  <a href="https://reactnative.dev/" target="_blank" rel="noreferrer"> <img src="public/readme/react-native.svg" alt="React Native" width="60" height="65" style="margin-right: 34px" /></a>
+  <a href="https://www.nativewind.dev/" target="_blank" rel="noreferrer"> <img src="public/readme/nativewind.svg" alt="Nativewind" width="60" height="55" style="margin-right: 34px" /></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" width="60" height="60" style="margin-right: 34px" /></a>
+  <a href="https://expo.dev/" target="_blank" rel="noreferrer"> <img src="public/readme/expo.svg" alt="Expo" width="60" height="60" /></a>
 
 </div>
 
