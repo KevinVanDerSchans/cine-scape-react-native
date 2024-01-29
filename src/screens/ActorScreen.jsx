@@ -7,6 +7,7 @@ import Spinner from '../components/Spinner';
 import { View, Text, Image, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
 import { ChevronLeftIcon } from 'react-native-heroicons/outline';
 import { theme } from '../theme';
+import Toast from "react-native-toast-message";
 
 const { width, height } = Dimensions.get('window');
 
@@ -35,6 +36,16 @@ export default function ActorScreen() {
     } catch (error) {
       console.error("Error getting ActorDetails: ", error);
 
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: error.message,
+        visibilityTime: 3000,
+        autoHide: true,
+        topOffset: 30,
+        bottomOffset: 40,
+      })
+
     } finally {
       setLoading(false);
     }
@@ -50,6 +61,16 @@ export default function ActorScreen() {
 
     } catch (error) {
       console.error("Error getting ActorMovies: ", error);
+
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: error.message,
+        visibilityTime: 3000,
+        autoHide: true,
+        topOffset: 30,
+        bottomOffset: 40,
+      })
     }
   };
 

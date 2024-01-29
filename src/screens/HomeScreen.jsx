@@ -9,6 +9,7 @@ import Spinner from "../components/Spinner";
 import MovieList from "../components/MovieList";
 import TrendingMovies from "../components/TrendingMovies";
 import { theme } from "../theme";
+import Toast from "react-native-toast-message";
 
 
 export default function HomeScreen() {
@@ -31,6 +32,16 @@ export default function HomeScreen() {
 
     } catch (error) {
       console.error("Error getting TrendingMovies: ", error);
+
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: error.message,
+        visibilityTime: 3000,
+        autoHide: true,
+        topOffset: 30,
+        bottomOffset: 40,
+      })
     }
     setLoading(false);
   };
@@ -42,6 +53,16 @@ export default function HomeScreen() {
 
     } catch (error) {
       console.error("Error getting UpcomingMovies: ", error);
+
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: error.message,
+        visibilityTime: 3000,
+        autoHide: true,
+        topOffset: 30,
+        bottomOffset: 40,
+      })
     }
   };
 
@@ -52,7 +73,29 @@ export default function HomeScreen() {
 
     } catch (error) {
       console.error("Error getting TopRatedMovies: ", error);
+
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: error.message,
+        visibilityTime: 3000,
+        autoHide: true,
+        topOffset: 30,
+        bottomOffset: 40,
+      })
     }
+  };
+
+  const handleIconClick = () => {
+    Toast.show({
+      type: 'info',
+      text1: 'Function not currently available',
+      text2: 'It will be implemented in the next version',
+      visibilityTime: 4000,
+      autoHide: true,
+      topOffset: 30,
+      bottomOffset: 40,
+    });
   };
 
   return (
@@ -61,7 +104,12 @@ export default function HomeScreen() {
         <StatusBar style="dark" />
 
         <View className="flex-row justify-between items-center mx-4 my-5 mb-3">
-          <Bars3CenterLeftIcon size="30" strokeWidth={2.5} color={theme.text} />
+          <Bars3CenterLeftIcon
+            size="30"
+            strokeWidth={2.5}
+            color={theme.text}
+            onPress={handleIconClick}
+          />
 
           <View className="flex-row">
             <FilmIcon size="30" color={theme.title} />

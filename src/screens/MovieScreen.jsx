@@ -9,6 +9,7 @@ import { ChevronLeftIcon } from 'react-native-heroicons/outline';
 import { LinearGradient } from 'expo-linear-gradient';
 import { View, Text, Dimensions, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { theme } from '../theme';
+import Toast from "react-native-toast-message";
 
 const { width, height } = Dimensions.get('window');
 
@@ -38,6 +39,16 @@ export default function MovieScreen() {
     } catch (error) {
       console.error("Error getting MovieDetails: ", error);
 
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: error.message,
+        visibilityTime: 3000,
+        autoHide: true,
+        topOffset: 30,
+        bottomOffset: 40,
+      })
+
     } finally {
       setLoading(false);
     }
@@ -53,6 +64,16 @@ export default function MovieScreen() {
 
     } catch (error) {
       console.error("Error getting MovieCredits: ", error);
+
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: error.message,
+        visibilityTime: 3000,
+        autoHide: true,
+        topOffset: 30,
+        bottomOffset: 40,
+      })
     }
   };
 
@@ -66,6 +87,16 @@ export default function MovieScreen() {
 
     } catch (error) {
       console.error("Error getting SimilarMovies: ", error);
+
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: error.message,
+        visibilityTime: 3000,
+        autoHide: true,
+        topOffset: 30,
+        bottomOffset: 40,
+      })
     }
   };
 

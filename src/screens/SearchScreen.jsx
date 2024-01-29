@@ -5,6 +5,7 @@ import Spinner from '../components/Spinner';
 import { fallbackMoviePoster, image185, searchMovies } from '../api/fetchers';
 import { View, Text, TextInput, TouchableOpacity, Image, ScrollView, TouchableWithoutFeedback, Dimensions } from 'react-native';
 import { XMarkIcon } from 'react-native-heroicons/outline';
+import Toast from "react-native-toast-message";
 
 const { width, height } = Dimensions.get('window');
 
@@ -35,6 +36,16 @@ export default function SearchScreen() {
 
       } catch (error) {
         console.error("Error trying to search for movies: ", error);
+
+        Toast.show({
+          type: 'error',
+          text1: 'Error',
+          text2: error.message,
+          visibilityTime: 3000,
+          autoHide: true,
+          topOffset: 30,
+          bottomOffset: 40,
+        })
 
       } finally {
         setLoading(false);
