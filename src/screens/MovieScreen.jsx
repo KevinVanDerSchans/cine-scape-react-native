@@ -110,7 +110,13 @@ export default function MovieScreen() {
       <SafeAreaView
         className="absolute z-20 w-full flex-row justify-between items-center px-4 mt-3"
       >
-        <TouchableOpacity style={{ backgroundColor: theme.background }} className="rounded-xl p-1" onPress={() => navigation.goBack()}>
+        <TouchableOpacity
+          style={{ backgroundColor: theme.background }}
+          className="rounded-xl p-1"
+          onPress={() => navigation.goBack()}
+          accessible
+          accessibilityLabel="Return"
+        >
           <ChevronLeftIcon size="28" strokeWidth={2.5} color="white" />
         </TouchableOpacity>
       </SafeAreaView>
@@ -124,6 +130,7 @@ export default function MovieScreen() {
               <Image
                 source={{ uri: image500(movie.poster_path) || fallbackMoviePoster }}
                 style={{ width, height: height * 0.55 }}
+                accessibilityLabel="Fallback Poster image"
               />
 
               <LinearGradient
@@ -142,13 +149,19 @@ export default function MovieScreen() {
         <Text
           className="text-white text-center text-3xl font-bold tracking-widest"
           style={{ color: theme.red }}
+          accessible
+          accessibilityLabel={`Movie title: ${movie?.title}`}
         >
           {movie?.title}
         </Text>
 
         {
           movie?.id ? (
-            <Text className="text-neutral-400 font-semibold text-base text-center">
+            <Text
+              className="text-neutral-400 font-semibold text-base text-center"
+              accessible
+              accessibilityLabel={`Movie status: ${movie?.title}, release date: ${movie?.release_date} and runtime: ${movie?.runtime}`}
+            >
               {movie?.status} • {movie?.release_date?.split('-')[0] || 'N/A'} • {movie?.runtime} min
             </Text>
           ) : null
@@ -160,7 +173,12 @@ export default function MovieScreen() {
               let showDot = index + 1 != movie.genres.length;
 
               return (
-                <Text key={index} className="text-neutral-400 font-semibold text-base text-center">
+                <Text
+                  key={index}
+                  className="text-neutral-400 font-semibold text-base text-center"
+                  accessible
+                  accessibilityLabel={`${genre?.name}`}
+                >
                   {genre?.name} {showDot ? "•" : null}
                 </Text>
               )
@@ -170,6 +188,8 @@ export default function MovieScreen() {
 
         <Text
           className="text-neutral-400 text-lg mx-4 tracking-wide"
+          accessible
+          accessibilityLabel={`${movie?.overview}`}
         >
           {movie?.overview}
         </Text>

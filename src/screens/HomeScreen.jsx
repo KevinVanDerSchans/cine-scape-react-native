@@ -109,17 +109,34 @@ export default function HomeScreen() {
             strokeWidth={2.5}
             color={theme.text}
             onPress={handleIconClick}
+            accessible
+            accessibilityLabel="Menu"
           />
 
           <View className="flex-row">
-            <FilmIcon size="30" color={theme.title} />
-            <Text className="text-white text-xl font-bold">
-              <Text> CineScape</Text>
+            <FilmIcon
+              size="30"
+              color={theme.title}
+              accessible
+              accessibilityLabel="Film icon"
+            />
+            <Text
+              className="text-white text-xl font-bold"
+              accessible
+              accessibilityLabel='CineScape'
+            >
+              CineScape
             </Text>
           </View>
 
           <TouchableOpacity onPress={() => navigation.navigate("Search")}>
-            <MagnifyingGlassIcon size="28" color={theme.text} strokeWidth={2.5} />
+            <MagnifyingGlassIcon
+              size="28"
+              color={theme.text}
+              strokeWidth={2.5}
+              accessible
+              accessibilityLabel="Lens"
+            />
           </TouchableOpacity>
         </View>
 

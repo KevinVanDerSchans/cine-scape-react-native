@@ -18,17 +18,37 @@ export default function MovieList({ title, data }) {
         <View style={{ margin: isLargeScreen ? 200 : 10 }}>
           {
             title === 'Upcoming' ? (
-              <ForwardIcon size='25' color={theme.red} />
+              <ForwardIcon
+                size='25'
+                color={theme.red}
+                accessible
+                accessibilityLabel='Upcoming films'
+              />
 
             ) : title === 'Top Rated' ? (
-              <TrophyIcon size='25' color={theme.red} />
+              <TrophyIcon
+                size='25'
+                color={theme.red}
+                accessible
+                accessibilityLabel='Top Rated films'
+              />
 
             ) : (
 
-              <VideoCameraIcon size='25' color={theme.red} />
+              <VideoCameraIcon
+                size='25'
+                color={theme.red}
+                accessible
+                accessibilityLabel='Video camara icon'
+              />
             )
           }
-            <Text className="text-white text-lg">  {title}</Text>
+            <Text
+              className="text-white text-lg"
+              accessible
+              accessibilityLabel={`${title}`}
+            >  {title}
+            </Text>
         </View>
       </View>
 
@@ -49,8 +69,13 @@ export default function MovieList({ title, data }) {
                     source={{ uri: image185(item.poster_path) || fallbackMoviePoster }}
                     className="rounded-3xl"
                     style={{ width: width * 0.33, height: height * 0.22 }}
+                    accessibilityLabel="Fallback Poster image"
                   />
-                  <Text className="text-neutral-300 ml-1">
+                  <Text
+                    className="text-neutral-300 ml-1"
+                    accessible
+                    accessibilityLabel={`${item.title}`}
+                  >
                     {
                       item.title.length > 14 ? item.title.slice(0, 14) + '...' : item.title
                     }

@@ -72,6 +72,8 @@ export default function SearchScreen() {
           placeholder="Search your movie..."
           placeholderTextColor={'lightgray'}
           className="pb-1 pl-6 flex-1 text-base font-semibold text-white tracking-wider"
+          accessible
+          accessibilityLabel='Search your movie...'
         />
         <TouchableOpacity
           onPress={() => navigation.navigate('Home')}
@@ -91,7 +93,13 @@ export default function SearchScreen() {
               contentContainerStyle={{ paddingHorizontal: 15 }}
               className="space-y-3"
             >
-              <Text className="text-white font-semibold ml-1">Results ({results.length})</Text>
+              <Text
+                className="text-white font-semibold ml-1"
+                accessible
+                accessibilityLabel='Results'
+              >
+                  Results ({results.length})
+              </Text>
 
               <View className="flex-row justify-between flex-wrap">
                 {
@@ -106,8 +114,13 @@ export default function SearchScreen() {
                             source={{ uri: image185(item.poster_path) || fallbackMoviePoster }}
                             style={{ width: width * 0.44, height: height * 0.3 }}
                             className="rounded-3xl"
+                            accessibilityLabel="Search poster"
                           />
-                          <Text className="text-gray-300 ml-1">
+                          <Text
+                            className="text-gray-300 ml-1"
+                            accessible
+                            accessibilityLabel={`${item.title}`}
+                          >
                             {
                               item.title.length > 22 ? item.title.slice(0, 22) + '...' : item.title
                             }
@@ -125,6 +138,7 @@ export default function SearchScreen() {
             <Image
               source={require('../../public/movieTime.png')}
               className="h-96 w-96"
+              accessibilityLabel="Movie time"
             />
           </View>
         )

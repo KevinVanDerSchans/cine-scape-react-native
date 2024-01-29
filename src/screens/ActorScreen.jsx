@@ -106,53 +106,112 @@ export default function ActorScreen() {
                   <Image
                     source={{ uri: image342(actor?.profile_path) || fallbackActorImage }}
                     style={{ height: height * 0.43, width: width * 0.74 }}
+                    accessibilityLabel="Fallback Actor image"
                   />
                 </View>
               </View>
 
               <View className="-mt-10">
-                <Text className="text-3xl text-white font-bold text-center">
+                <Text
+                  className="text-3xl text-white font-bold text-center"
+                  accessible
+                  accessibilityLabel={`${actor?.name}`}
+                >
                   {actor?.name}
                 </Text>
 
-                <Text className="text-neutral-500 text-base text-center">
+                <Text
+                  className="text-neutral-500 text-base text-center"
+                  accessible
+                  accessibilityLabel={`${actor?.place_of_birth}`}
+                >
                   {actor?.place_of_birth}
                 </Text>
               </View>
 
               <View className="mx-3 p-4 mt-6 flex-row justify-between items-center bg-neutral-700 rounded-full">
                 <View className="border-r-2 border-r-neutral-400 px-2 items-center">
-                  <Text className="text-white font-semibold ">Gender</Text>
-                  <Text className="text-neutral-300 text-sm">
+                  <Text
+                    className="text-white font-semibold"
+                    accessible
+                    accessibilityLabel='Actor gender'
+                  >Gender
+                  </Text>
+
+                  <Text
+                    className="text-neutral-300 text-sm"
+                    accessible
+                    accessibilityLabel={`Actor gender: ${actor?.gender}`}
+                  >
                     {actor?.gender == 1 ? 'Female' : 'Male'}
                   </Text>
                 </View>
 
                 <View className="border-r-2 border-r-neutral-400 px-2 items-center">
-                  <Text className="text-white font-semibold">Birthday</Text>
-                  <Text className="text-neutral-300 text-sm">
+                  <Text
+                    className="text-white font-semibold"
+                    accessible
+                    accessibilityLabel='Actor birthday'
+                  >Birthday
+                  </Text>
+
+                  <Text
+                    className="text-neutral-300 text-sm"
+                    accessible
+                    accessibilityLabel={`Actor birthday: ${actor?.birthday}`}
+                  >
                     {actor?.birthday}
                   </Text>
                 </View>
 
                 <View className="border-r-2 border-r-neutral-400 px-2 items-center">
-                  <Text className="text-white font-semibold">known for</Text>
-                  <Text className="text-neutral-300 text-sm">
+                  <Text
+                    className="text-white font-semibold"
+                    accessible
+                    accessibilityLabel='Known for'
+                  >known for
+                  </Text>
+
+                  <Text
+                    className="text-neutral-300 text-sm"
+                    accessible
+                    accessibilityLabel={`${actor?.known_for_department}`}
+                  >
                       {actor?.known_for_department}
                   </Text>
                 </View>
 
                 <View className="px-2 items-center">
-                  <Text className="text-white font-semibold">Popularity</Text>
-                  <Text className="text-neutral-300 text-sm">
+                  <Text
+                    className="text-white font-semibold"
+                    accessible
+                    accessibilityLabel='Popularity'
+                  >Popularity
+                  </Text>
+
+                  <Text
+                    className="text-neutral-300 text-sm"
+                    accessible
+                    accessibilityLabel={`${actor?.popularity}`}
+                  >
                     {actor?.popularity?.toFixed(2)} %
                   </Text>
                 </View>
               </View>
 
               <View className="my-6 mx-4 space-y-2">
-                <Text className="text-white text-lg">Biography</Text>
-                <Text className="text-neutral-400 text-lg tracking-wide">
+                <Text
+                  className="text-white text-lg"
+                  accessible
+                  accessibilityLabel='Biography'
+                >Biography
+                </Text>
+
+                <Text
+                  className="text-neutral-400 text-lg tracking-wide"
+                  accessible
+                  accessibilityLabel={`${actor?.biography}`}
+                >
                   {actor?.biography ? actor.biography : 'N/A'}
                 </Text>
               </View>

@@ -20,7 +20,12 @@ export default function TrendingMovies({ data }) {
     <View className="py-4 bg-neutral-900">
       <View className="flex-row mx-4 mb-8 items-center">
         <ArrowTrendingUpIcon size='28' color={theme.red} />
-        <Text className="text-white text-xl">  Trending</Text>
+        <Text
+          className="text-white text-xl"
+          accessible
+          accessibilityLabel='Trending List'
+        >  Trending
+        </Text>
       </View>
 
       <Carousel
@@ -47,6 +52,7 @@ const MovieCard = ({ item, handleClick }) => {
           width: width * 0.6,
           height: height * 0.4
         }}
+        accessibilityLabel="Movie image"
       />
     </TouchableWithoutFeedback>
   )

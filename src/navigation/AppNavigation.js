@@ -19,15 +19,18 @@ function Tabs () {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
+          let label;
 
           if (route.name === "Home") {
             iconName = focused ? "ios-home" : "ios-home-outline";
+            label = 'Home'
 
           } else if (route.name === "Search") {
             iconName = focused ? "ios-search" : "ios-search-outline";
+            label = 'Search'
           }
 
-          return <Ionicons name={iconName} size={size} color={color} />;
+          return <Ionicons name={iconName} size={size} color={color} accessibilityLabel={label} />;
         },
         tabBarActiveTintColor: `${theme.title}`,
         tabBarInactiveTintColor: `${theme.text}`,
