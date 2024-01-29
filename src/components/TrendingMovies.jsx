@@ -52,7 +52,7 @@ const MovieCard = ({ item, handleClick }) => {
           width: width * 0.6,
           height: height * 0.4
         }}
-        alt="Movie image"
+        accessibilityLabel="Movie image"
       />
     </TouchableWithoutFeedback>
   )

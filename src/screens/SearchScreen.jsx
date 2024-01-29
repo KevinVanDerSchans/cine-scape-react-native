@@ -114,7 +114,7 @@ export default function SearchScreen() {
                             source={{ uri: image185(item.poster_path) || fallbackMoviePoster }}
                             style={{ width: width * 0.44, height: height * 0.3 }}
                             className="rounded-3xl"
-                            alt="Search poster"
+                            accessibilityLabel="Search poster"
                           />
                           <Text
                             className="text-gray-300 ml-1"
@@ -138,7 +138,7 @@ export default function SearchScreen() {
             <Image
               source={require('../../public/movieTime.png')}
               className="h-96 w-96"
-              alt="Movie time"
+              accessibilityLabel="Movie time"
             />
           </View>
         )

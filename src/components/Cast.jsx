@@ -34,7 +34,7 @@ export default function Cast({ cast, navigation }) {
                   <Image
                     className="rounded-2xl h-24 w-20"
                     source={{ uri: image185(actor?.profile_path) || fallbackActorImage }}
-                    alt="Fallback actor image"
+                    accessibilityLabel="Fallback actor image"
                   />
                 </View>
 

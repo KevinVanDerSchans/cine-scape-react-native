@@ -124,7 +124,7 @@ export default function MovieScreen() {
               <Image
                 source={{ uri: image500(movie.poster_path) || fallbackMoviePoster }}
                 style={{ width, height: height * 0.55 }}
-                alt="Fallback Poster image"
+                accessibilityLabel="Fallback Poster image"
               />
 
               <LinearGradient

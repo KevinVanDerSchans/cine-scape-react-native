@@ -106,7 +106,7 @@ export default function ActorScreen() {
                   <Image
                     source={{ uri: image342(actor?.profile_path) || fallbackActorImage }}
                     style={{ height: height * 0.43, width: width * 0.74 }}
-                    alt="Fallback Actor image"
+                    accessibilityLabel="Fallback Actor image"
                   />
                 </View>
               </View>
