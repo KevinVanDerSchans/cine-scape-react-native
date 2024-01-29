@@ -1,4 +1,4 @@
-import { fallbackMoviePoster, fetchMovieDetails, fetchMovieCredits, fetchSimilarMovies, image500 } from '../api/moviedb';
+import { fallbackMoviePoster, fetchMovieDetails, fetchMovieCredits, fetchSimilarMovies, image500 } from '../api/fetchers';
 import { useEffect, useState } from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import Cast from '../components/Cast';
@@ -27,28 +27,45 @@ export default function MovieScreen() {
     getSimilarMovies(item.id);
   }, [item]);
 
-  const getMovieDetails = async id => {
-    const data = await fetchMovieDetails(id);
-    setLoading(false);
+  const getMovieDetails = async (id) => {
+    try {
+      const data = await fetchMovieDetails(id);
 
-    if (data) {
-      setMovie({ ...movie, ...data });
+      if (data) {
+        setMovie({ ...movie, ...data });
+      }
+
+    } catch (error) {
+      console.error("Error getting MovieDetails: ", error);
+
+    } finally {
+      setLoading(false);
     }
   };
 
-  const getMovieCredits = async id => {
-    const data = await fetchMovieCredits(id);
+  const getMovieCredits = async (id) => {
+    try {
+      const data = await fetchMovieCredits(id);
 
-    if (data && data.cast) {
-      setCast(data.cast);
+      if (data && data.cast) {
+        setCast(data.cast);
+      }
+
+    } catch (error) {
+      console.error("Error getting MovieCredits: ", error);
     }
   };
 
-  const getSimilarMovies = async id => {
-    const data = await fetchSimilarMovies(id);
+  const getSimilarMovies = async (id) => {
+    try {
+      const data = await fetchSimilarMovies(id);
 
-    if (data && data.results) {
-      setSimilarMovies(data.results);
+      if (data && data.results) {
+        setSimilarMovies(data.results);
+      }
+
+    } catch (error) {
+      console.error("Error getting SimilarMovies: ", error);
     }
   };
 

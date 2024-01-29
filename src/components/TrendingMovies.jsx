@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import Carousel from 'react-native-snap-carousel';
 import { View, Text, Image, TouchableWithoutFeedback, Dimensions } from "react-native";
 import { ArrowTrendingUpIcon } from 'react-native-heroicons/solid';
-import { image500 } from './../api/moviedb';
+import { image500 } from './../api/fetchers';
 import { theme } from '../theme';
 
 const { width, height } = Dimensions.get('window');

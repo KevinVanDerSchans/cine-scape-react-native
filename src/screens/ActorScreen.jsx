@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { fallbackActorImage, fetchActorDetails, fetchActorMovies, image342 } from '../api/moviedb';
+import { fallbackActorImage, fetchActorDetails, fetchActorMovies, image342 } from '../api/fetchers';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import MovieList from '../components/MovieList';
 import Spinner from '../components/Spinner';
@@ -24,20 +24,32 @@ export default function ActorScreen() {
     getActorMovies(item.id);
   }, [item]);
 
-  const getActorDetails = async id => {
-    const data = await fetchActorDetails(id);
-    setLoading(false);
+  const getActorDetails = async (id) => {
+    try {
+      const data = await fetchActorDetails(id);
 
-    if (data) {
-      setActor(data);
+      if (data) {
+        setActor(data);
+      }
+
+    } catch (error) {
+      console.error("Error getting ActorDetails: ", error);
+
+    } finally {
+      setLoading(false);
     }
   };
 
-  const getActorMovies = async id => {
-    const data = await fetchActorMovies(id);
+  const getActorMovies = async (id) => {
+    try {
+      const data = await fetchActorMovies(id);
 
-    if (data && data.cast) {
-      setActorMovies(data.cast);
+      if (data && data.cast) {
+        setActorMovies(data.cast);
+      }
+
+    } catch (error) {
+      console.error("Error getting ActorMovies: ", error);
     }
   };
 
