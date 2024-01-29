@@ -110,7 +110,13 @@ export default function MovieScreen() {
       <SafeAreaView
         className="absolute z-20 w-full flex-row justify-between items-center px-4 mt-3"
       >
-        <TouchableOpacity style={{ backgroundColor: theme.background }} className="rounded-xl p-1" onPress={() => navigation.goBack()}>
+        <TouchableOpacity
+          style={{ backgroundColor: theme.background }}
+          className="rounded-xl p-1"
+          onPress={() => navigation.goBack()}
+          accessible
+          accessibilityLabel="Return"
+        >
           <ChevronLeftIcon size="28" strokeWidth={2.5} color="white" />
         </TouchableOpacity>
       </SafeAreaView>

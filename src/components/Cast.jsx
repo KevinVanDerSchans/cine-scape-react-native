@@ -41,7 +41,7 @@ export default function Cast({ cast, navigation }) {
                 <Text
                   className="text-white text-xs mt-1"
                   accessible
-                  accessibilityLabel={`Actor ${actor?.character}`}
+                  accessibilityLabel={`Actor: ${actor?.character}`}
                 >
                   {actor?.character.length > 10 ? actor.character.slice(0, 10) + '...' : actor?.character}
                 </Text>
@@ -49,7 +49,7 @@ export default function Cast({ cast, navigation }) {
                 <Text
                   className="text-neutral-400 text-xs"
                   accessible
-                  accessibilityLabel={`Actor name ${actor?.original_name}`}
+                  accessibilityLabel={`Actor full name ${actor?.original_name}`}
                 >
                   {actor?.original_name.length > 10 ? actor.original_name.slice(0, 10) + '...' : actor?.original_name}
                 </Text>

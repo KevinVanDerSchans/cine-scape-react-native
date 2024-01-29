@@ -9,6 +9,8 @@ export default function Spinner() {
         size="large"
         color={theme.blue}
         style={{ transform: [{ scaleX: 3 }, { scaleY: 3 }] }}
+        accessible
+        accessibilityLabel="Loading data..."
       />
     </View>
   )
