@@ -1,11 +1,11 @@
-import React from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { View, Text, ScrollView, TouchableWithoutFeedback, Image, Dimensions } from 'react-native';
-import { fallbackMoviePoster, image185 } from '../api/fetchers';
-import { ForwardIcon, TrophyIcon, VideoCameraIcon } from 'react-native-heroicons/solid';
-import { theme } from '../theme';
+import React from "react";
+import { useNavigation } from "@react-navigation/native";
+import { View, Text, ScrollView, TouchableWithoutFeedback, Image, Dimensions } from "react-native";
+import { fallbackMoviePoster, image185 } from "../api/fetchers";
+import { ForwardIcon, TrophyIcon, VideoCameraIcon } from "react-native-heroicons/solid";
+import { theme } from "../theme";
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 const isLargeScreen = width >= 768;
 
 
@@ -17,29 +17,29 @@ export default function MovieList({ title, data }) {
       <View className="flex flex-row inline-block mx-4 items-center">
         <View style={{ margin: isLargeScreen ? 200 : 10 }}>
           {
-            title === 'Upcoming' ? (
+            title === "Upcoming" ? (
               <ForwardIcon
-                size='25'
+                size="25"
                 color={theme.red}
                 accessible
-                accessibilityLabel='Upcoming films'
+                accessibilityLabel="Upcoming films"
               />
 
-            ) : title === 'Top Rated' ? (
+            ) : title === "Top Rated" ? (
               <TrophyIcon
-                size='25'
+                size="25"
                 color={theme.red}
                 accessible
-                accessibilityLabel='Top Rated films'
+                accessibilityLabel="Top Rated films"
               />
 
             ) : (
 
               <VideoCameraIcon
-                size='25'
+                size="25"
                 color={theme.red}
                 accessible
-                accessibilityLabel='Video camara icon'
+                accessibilityLabel="Video camara icon"
               />
             )
           }
@@ -62,7 +62,7 @@ export default function MovieList({ title, data }) {
             return (
               <TouchableWithoutFeedback
                 key={index}
-                onPress={() => navigation.push('Movie', item)}
+                onPress={() => navigation.push("Movie", item)}
               >
                 <View className="space-y-1 mr-4">
                   <Image
@@ -77,7 +77,7 @@ export default function MovieList({ title, data }) {
                     accessibilityLabel={`${item.title}`}
                   >
                     {
-                      item.title.length > 14 ? item.title.slice(0, 14) + '...' : item.title
+                      item.title.length > 14 ? item.title.slice(0, 14) + "..." : item.title
                     }
                   </Text>
                 </View>

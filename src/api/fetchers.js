@@ -61,8 +61,8 @@ export const fetchTrendingMovies = async () => {
     console.error("Error getting TrendingMovies: ", error);
 
     Toast.show({
-      type: 'error',
-      text1: 'Error',
+      type: "error",
+      text1: "Error",
       text2: error.message,
       visibilityTime: 3000,
       autoHide: true,
@@ -83,8 +83,8 @@ export const fetchUpcomingMovies = async () => {
     console.error("Error getting UpcomingMovies: ", error);
 
     Toast.show({
-      type: 'error',
-      text1: 'Error',
+      type: "error",
+      text1: "Error",
       text2: error.message,
       visibilityTime: 3000,
       autoHide: true,
@@ -105,8 +105,8 @@ export const fetchTopRatedMovies = async () => {
     console.error("Error getting TopRatedMovies: ", error);
 
     Toast.show({
-      type: 'error',
-      text1: 'Error',
+      type: "error",
+      text1: "Error",
       text2: error.message,
       visibilityTime: 3000,
       autoHide: true,
@@ -127,8 +127,8 @@ export const fetchMovieDetails = async (id) => {
     console.error("Error getting MovieDetails: ", error);
 
     Toast.show({
-      type: 'error',
-      text1: 'Error',
+      type: "error",
+      text1: "Error",
       text2: error.message,
       visibilityTime: 3000,
       autoHide: true,
@@ -149,8 +149,8 @@ export const fetchMovieCredits = async (movieId) => {
     console.error("Error getting MovieCredits: ", error);
 
     Toast.show({
-      type: 'error',
-      text1: 'Error',
+      type: "error",
+      text1: "Error",
       text2: error.message,
       visibilityTime: 3000,
       autoHide: true,
@@ -171,8 +171,8 @@ export const fetchSimilarMovies = async (movieId) => {
     console.error("Error getting SimilarMovies: ", error);
 
     Toast.show({
-      type: 'error',
-      text1: 'Error',
+      type: "error",
+      text1: "Error",
       text2: error.message,
       visibilityTime: 3000,
       autoHide: true,
@@ -193,8 +193,8 @@ export const fetchActorDetails = async (actorId) => {
     console.error("Error getting ActorDetails: ", error);
 
     Toast.show({
-      type: 'error',
-      text1: 'Error',
+      type: "error",
+      text1: "Error",
       text2: error.message,
       visibilityTime: 3000,
       autoHide: true,
@@ -215,8 +215,8 @@ export const fetchActorMovies = async (actorId) => {
     console.error("Error getting ActorMovies: ", error);
 
     Toast.show({
-      type: 'error',
-      text1: 'Error',
+      type: "error",
+      text1: "Error",
       text2: error.message,
       visibilityTime: 3000,
       autoHide: true,
@@ -237,8 +237,8 @@ export const searchMovies = async (params) => {
     console.error("Error trying to search for movies: ", error);
 
     Toast.show({
-      type: 'error',
-      text1: 'Error',
+      type: "error",
+      text1: "Error",
       text2: error.message,
       visibilityTime: 3000,
       autoHide: true,

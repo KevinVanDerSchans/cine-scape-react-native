@@ -1,17 +1,17 @@
-import { fallbackMoviePoster, fetchMovieDetails, fetchMovieCredits, fetchSimilarMovies, image500 } from '../api/fetchers';
-import { useEffect, useState } from 'react';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import Cast from '../components/Cast';
-import MovieList from '../components/MovieList';
-import Spinner from '../components/Spinner';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { ChevronLeftIcon } from 'react-native-heroicons/outline';
-import { LinearGradient } from 'expo-linear-gradient';
-import { View, Text, Dimensions, Image, TouchableOpacity, ScrollView } from 'react-native';
-import { theme } from '../theme';
+import { fallbackMoviePoster, fetchMovieDetails, fetchMovieCredits, fetchSimilarMovies, image500 } from "../api/fetchers";
+import { useEffect, useState } from "react";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import Cast from "../components/Cast";
+import MovieList from "../components/MovieList";
+import Spinner from "../components/Spinner";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { ChevronLeftIcon } from "react-native-heroicons/outline";
+import { LinearGradient } from "expo-linear-gradient";
+import { View, Text, Dimensions, Image, TouchableOpacity, ScrollView } from "react-native";
+import { theme } from "../theme";
 import Toast from "react-native-toast-message";
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 
 export default function MovieScreen() {
   const { params: item } = useRoute();
@@ -40,8 +40,8 @@ export default function MovieScreen() {
       console.error("Error getting MovieDetails: ", error);
 
       Toast.show({
-        type: 'error',
-        text1: 'Error',
+        type: "error",
+        text1: "Error",
         text2: error.message,
         visibilityTime: 3000,
         autoHide: true,
@@ -66,8 +66,8 @@ export default function MovieScreen() {
       console.error("Error getting MovieCredits: ", error);
 
       Toast.show({
-        type: 'error',
-        text1: 'Error',
+        type: "error",
+        text1: "Error",
         text2: error.message,
         visibilityTime: 3000,
         autoHide: true,
@@ -89,8 +89,8 @@ export default function MovieScreen() {
       console.error("Error getting SimilarMovies: ", error);
 
       Toast.show({
-        type: 'error',
-        text1: 'Error',
+        type: "error",
+        text1: "Error",
         text2: error.message,
         visibilityTime: 3000,
         autoHide: true,
@@ -134,7 +134,7 @@ export default function MovieScreen() {
               />
 
               <LinearGradient
-                colors={['transparent', 'rgba(23, 23, 23, 0.8)', 'rgba(23, 23, 23, 1)']}
+                colors={["transparent", "rgba(23, 23, 23, 0.8)", "rgba(23, 23, 23, 1)"]}
                 style={{ width, height: height * 0.40 }}
                 start={{ x: 0.5, y: 0 }}
                 end={{ x: 0.5, y: 1 }}
@@ -162,7 +162,7 @@ export default function MovieScreen() {
               accessible
               accessibilityLabel={`Movie status: ${movie?.title}, release date: ${movie?.release_date} and runtime: ${movie?.runtime}`}
             >
-              {movie?.status} • {movie?.release_date?.split('-')[0] || 'N/A'} • {movie?.runtime} min
+              {movie?.status} • {movie?.release_date?.split("-")[0] || "N/A"} • {movie?.runtime} min
             </Text>
           ) : null
         }
@@ -197,7 +197,7 @@ export default function MovieScreen() {
 
       {movie?.id && cast.length > 0 && <Cast navigation={navigation} cast={cast} />}
 
-      {movie?.id && similarMovies.length > 0 && <MovieList title={'Similar Movies'} hideSeeAll={true} data={similarMovies} />}
+      {movie?.id && similarMovies.length > 0 && <MovieList title={"Similar Movies"} hideSeeAll={true} data={similarMovies} />}
     </ScrollView>
   );
 }

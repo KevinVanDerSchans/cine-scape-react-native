@@ -23,11 +23,11 @@ function Tabs () {
 
           if (route.name === "Home") {
             iconName = focused ? "ios-home" : "ios-home-outline";
-            label = 'Home'
+            label = "Home"
 
           } else if (route.name === "Search") {
             iconName = focused ? "ios-search" : "ios-search-outline";
-            label = 'Search'
+            label = "Search"
           }
 
           return <Ionicons name={iconName} size={size} color={color} accessibilityLabel={label} />;
