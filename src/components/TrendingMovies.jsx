@@ -5,6 +5,7 @@ import { View, Text, Image, TouchableWithoutFeedback, Dimensions } from "react-n
 import { ArrowTrendingUpIcon } from 'react-native-heroicons/solid';
 import { image500 } from './../api/fetchers';
 import { theme } from '../theme';
+import tw from "twrnc";
 
 const { width, height } = Dimensions.get('window');
 
@@ -17,10 +18,10 @@ export default function TrendingMovies({ data }) {
   };
 
   return (
-    <View className="py-4 bg-neutral-900">
-      <View className="flex-row mx-4 mb-8 items-center">
+    <View style={tw`py-4 bg-neutral-900`}>
+      <View style={tw`flex-row mx-4 mb-8 items-center`}>
         <ArrowTrendingUpIcon size='28' color={theme.red} />
-        <Text className="text-white text-xl">  Trending</Text>
+        <Text style="text-white text-xl">  Trending</Text>
       </View>
 
       <Carousel

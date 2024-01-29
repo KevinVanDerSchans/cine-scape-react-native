@@ -10,7 +10,7 @@ import MovieList from "../components/MovieList";
 import TrendingMovies from "../components/TrendingMovies";
 import { theme } from "../theme";
 import Toast from "react-native-toast-message";
-
+import tw from "twrnc";
 
 export default function HomeScreen() {
   const [trending, setTrending] = useState([]);
@@ -99,11 +99,11 @@ export default function HomeScreen() {
   };
 
   return (
-    <View className="flex-1 bg-blue-500">
+    <View style={tw`flex-1 bg-blue-500 h-full`}>
       <SafeAreaView>
         <StatusBar style="dark" />
 
-        <View className="flex-row justify-between items-center mx-4 my-5 mb-3">
+        <View style={tw`flex-row justify-between items-center mx-4 my-5 mb-3`}>
           <Bars3CenterLeftIcon
             size="30"
             strokeWidth={2.5}
@@ -111,9 +111,9 @@ export default function HomeScreen() {
             onPress={handleIconClick}
           />
 
-          <View className="flex-row">
+          <View style={tw`flex-row`}>
             <FilmIcon size="30" color={theme.title} />
-            <Text className="text-white text-xl font-bold">
+            <Text style={tw`text-white text-xl font-bold`}>
               <Text> CineScape</Text>
             </Text>
           </View>
